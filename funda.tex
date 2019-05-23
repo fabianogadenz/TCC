@@ -71,7 +71,7 @@ A conectividade entre pixels é um conceito importante no processamento de image
 
 
 \section{Ciclo de Gonzalez}
-Os dispositivos desempenham um papel essencial em um sistems de processamento de imagem, podendo ser utilizados para aquisição, armazenamento, processamento, transmissão e exibição de imagens. Com o crescente avanço tecnológico e a demanda de certas áreas de aplicação, estes dispositivos tem evoluído de forma significativa nas últimas décadas \cite{PEDRINI2008}.
+Os dispositivos desempenham um papel essencial em um sistema de processamento de imagem, podendo ser utilizados para aquisição, armazenamento, processamento, transmissão e exibição de imagens. Com o crescente avanço tecnológico e a demanda de certas áreas de aplicação, estes dispositivos tem evoluído de forma significativa nas últimas décadas \cite{PEDRINI2008}.
 (PEDRO: atualizar imagem conforme livro de 2018)
 Segundo \citeonline{GONZALEZ1992}, as técnicas em análise de imagem podem ser divididas em três áreas básicas: (1) aquisição e processamento de baixo nível, com funções que podem ser vistas como reações automáticas, ou seja, reações que não requerem comportamento inteligente; (2) processamento de nível intermediário, com processos de extração e caracterização de componentes em uma imagem; e (3) processamento de alto nível, que envolve os processos de reconhecimento e interpretação. A Figura 3 mostra os processos de cada uma dessas áreas.
 
@@ -103,8 +103,7 @@ O próximo estágio é o processo chamado de segmentação. A segmentação de i
 \end{figure}
 De um modo geral, as técnicas de segmentação utilizam duas abordagens principais: a similaridade entre os pixels e a descontinuidade entre eles. A binarização de imagens, técnica baseada em similaridade, é a técnica mais utilizada, é uma  simples e eficiente técnica do ponto de vista computacional, sendo portanto comumente utilizada em sistemas de visão computacional \cite{ISRAEL2003}.
 
- % VEJA QUE AQUI E EM OUTROS PONTOS VOCÊ TRAZ TERMOS ESPECÍFICOS, QUE PODERIAM SER EXPLICADOS EM SEU TEXTO.
-Na segmentação com descontinuidade entre os pixels, a segmentação é baseada nas técnicas de limiarização, crescimento por regiões, união e divisão de regiões \cite{Rodrigues2002}.
+Na segmentação com descontinuidade entre os pixels, a segmentação é baseada nas técnicas de limiarização, crescimento por regiões, união e divisão de regiões \cite{Rodrigues2002}.  % VEJA QUE AQUI E EM OUTROS PONTOS VOCÊ TRAZ TERMOS ESPECÍFICOS, QUE PODERIAM SER EXPLICADOS EM SEU TEXTO.
 
 A etapa de segmentação é seguida por ima etapa de representação e descrição, na qual, através de descitores, busca-se obter um conjunto de dados correspondentes àquela imagem.
 
@@ -125,7 +124,7 @@ Em linhas gerais, para determinar se um pixel da imagem é ou não de borda, cal
 
 A idéia associada à maioria das técnicas para a detecção de bordas é o cálculo de um operador local diferencial que seja sensível a mudanças ou descontinuidade nos níveis de cinza \cite{GONZALEZ2002}. Um operador de derivada pode ser usado para executar essa função, visto que se poderia avaliar a taxa de mudança da função dos níveis de cinza. A taxa de mudança dos níveis de cinza em uma imagem tende a ser maior perto das bordas e menor em áreas constantes, caracterizando as bordas como os pontos máximos da derivada \cite{PEDRINI2008}.
 
-Segundo \citeonline{Franco2013}, diversas abordagens foram propostas ao longo dos anos para a detecção de bordas em imagens digitais, como por exemplo, os operadores de Roberts, Sobel e Canny. (DECIDIR QUAL SERA UTILIZADO E PQ).
+Segundo \citeonline{Franco2013}, diversas abordagens foram propostas ao longo dos anos para a detecção de bordas em imagens digitais, como por exemplo, os operadores de Roberts, Sobel e Canny. %(DECIDIR QUAL SERA UTILIZADO E PQ).
 
 Na detecção de linhas retas, \citeonline{SZELISKU2010} diz que parte da complexidade inerente à detecção de linhas retas em imagens vem do fato de que, no mundo real, as linhas são normalmente compostas por componentes desconectados ou mesmo feitas de diversos segmentos colineares, sendo necessário agrupá-los para possibilitar a detecção. Em diversas áreas de PDI surge o problema da determinação da localização e orientação de linhas retas em imagens.
 
