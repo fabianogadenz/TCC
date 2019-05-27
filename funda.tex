@@ -23,6 +23,7 @@ O objeto de operação do Processamento Digital de Imagens são as imagens digit
 Os sistemas de PDI consistem em um conjunto de técnicas que possibilitam a captura de imagens por meio de equipamentos variados, como tomógrafos médicos, câmeras fotográficas, satélites e outros, tal como a representação e transformação destas imagens. O propósito é fazer a extração e identificação das informações que fazem parte das imagens, de forma automática por meio de máquinas \cite{PEDRINI2008}.
 
 % EM TODAS AS SEÇÕES VOCÊ DEVERÁ TRAZER ARTIGOS QUE APLICARAM OS TEMAS DAS SEÇÕES E COMENTAR SOBRE O OBJETIVO E RESULTADO OBTIDOS NESTES TRABALHOS.
+%fabiano: tentei encaixar autores relevantes em muitas afirmações. está faltando algum?
 
 
 \subsection{Representação de Imagens Digitais}
@@ -32,19 +33,19 @@ Segundo \citeonline{Goncalves2016}, uma imagem pode ser representada no plano ca
 
 
 
-A Figura 1 ilustra como seria um imagem digital em forma de notação matricial. Os elementos dessa matriz são chamados de elementos pictóricos, elementos de imagens, pels e pixel. O \textit{Pixel} (contração de Picture element) é o termo mais utilizado \cite{GONZALEZ2006}. O índice m representa a linha na qual o pixel se encontra, enquanto que o índice n aponta a coluna na qual está localizado o pixel. Em uma imagem M linhas e N colunas, m terá seu valor variando de 0 até M-1 e n terá seu valor variando de 0 até N-1 \cite{Almeida2018}. 
+A Figura \ref{img1} ilustra como seria um imagem digital em forma de notação matricial. Os elementos dessa matriz são chamados de elementos pictóricos, elementos de imagens, pels e pixel. O \textit{Pixel} (contração de Picture element) é o termo mais utilizado \cite{GONZALEZ2006}. O índice m representa a linha na qual o pixel se encontra, enquanto que o índice n aponta a coluna na qual está localizado o pixel. Em uma imagem M linhas e N colunas, m terá seu valor variando de 0 até M-1 e n terá seu valor variando de 0 até N-1 \cite{Almeida2018}. 
 
- \begin{figure}[h]
+ \begin{figure}[h!]
 	\centering
-	\includegraphics[width=1.0\textwidth]{Imagens/imagem1} 
-	\caption[Texto que vai aparecer na lista de fig.]{Representação da imagem em uma matriz bidimensional.}
+	\includegraphics[width=0.85\textwidth]{Imagens/imagem1} 
+	\caption[Representação da imagem em uma matriz bidimensional.]{Representação da imagem em uma matriz bidimensional.}
 \fonte{\citeonline{Goncalves2016}}
-	\label{fig:tux_laplace}
+	\label{img1}
 \end{figure}
 
 Segundo \citeonline{PEDRINI2008} uma imagem digital pode ser representada através de uma matriz bidimensional, na qual cada pixel da imagem corresponde a um elemento da matriz. Na Figura 2 é possível ver um exemplo de representação matricial de uma imagem, sendo que uma pequena região destacada é formada por números inteiros que representam o nível de cinza dos pixels da imagem. Existem várias vantagens ao utilizar matrizes para representação de imagens, pois são estruturas simples para armazenar, manipular e visualizar dados \cite{PEDRINI2008}. 
 
- \begin{figure}[h]
+ \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Imagens/imagem6} 
 	\caption[Representação matricial;]{Representação matricial; (a) imagem; (b) níveis de cinza correspondentes a região
@@ -57,9 +58,9 @@ destacada da imagem.}
 Em uma imagem digital existem vários relacionamentos importantes entre os pixels. Conforme descrito em \citeonline{GONZALEZ2002}, 
 um pixel p de coordenadas (x,y) possui uma vizinhança horizontal e vertical determinadas por (x-1, y), (x+1, y) e (x, y-1), (x, y+1) denominada vizinhança-4, e também uma vizinhança diagonal composta pelas coordenadas (x-1, y-1), (x-1, y+1), (x+1, y-1) e (x+1, y+1), convencionado com o nome de vizinhança-8 a união destas vizinhanças.
 
-Deve-se levar em consideração que nos pixels das extremidades da imagem, terão vizinhos faltantes.  Demonstrado visivelmente na Figura 2, o conceito de vizinhança de um pixel. % MELHORAR A ESCRITA DESTA ÚLTIMA SENTENÇA
-
-A conectividade entre pixels é um conceito importante no processamento de imagens, em especial para o reconhecimento de bordas de objetos presentes em uma imagem. Para identificar se dois pixels são conexos, é preciso averiguar se são vizinhos e se seus níveis de cinza são similares \citeonline{Goncalves2016}. É fundamental analisar a possibilidade de haver conexidade por meio da utilização da vizinhança-4 ou utilizando a vizinhança-8.
+Quando o pixel p estiver localizado na borda da imagem, alguns dos pixels vizinhos não estarão presentes na imagem. Isto pode ser mais bem entendido analisando-se a Figura 3 que demonstra visualmente o conceito de vizinhança de um pixel.
+% MELHORAR A ESCRITA DESTA ÚLTIMA SENTENÇA
+%arrumei. o anterior era: Deve-se levar em consideração que nos pixels das extremidades da imagem, terão vizinhos faltantes.  Demonstrado visivelmente na Figura 2, o conceito de vizinhança de um pixel. 
 
  \begin{figure}[h]
 	\centering
@@ -68,6 +69,10 @@ A conectividade entre pixels é um conceito importante no processamento de image
 \fonte{\citeonline{Goncalves2016}}%citaç\~ao do livro onde pegou a figura	
 	\label{fig:tux_laplace}
 \end{figure}
+
+A conectividade entre pixels é um conceito importante no processamento de imagens, em especial para o reconhecimento de bordas de objetos presentes em uma imagem. Para identificar se dois pixels são conexos, é preciso averiguar se são vizinhos e se seus níveis de cinza são similares \citeonline{Goncalves2016}. É fundamental analisar a possibilidade de haver conexidade por meio da utilização da vizinhança-4 ou utilizando a vizinhança-8.
+
+
 
 
 \section{Ciclo de Gonzalez}
@@ -120,11 +125,13 @@ Todas as etapas descritas pressupõem a existência de um conhecimento sobre o p
 
 Segundo \citeonline{Antonio}, uma borda é definida por uma mudança repentina do nível de cinza, ou seja ocorre uma descontinuidade no tom de cinza. Dessa forma, a descontinuidade pode ser percebida quando o gradiente da imagem tem uma brusca variação. Para \citeonline{PEDRINI2008}, a detecção de bordas é o limite entre duas regiões com propriedades razoavelmente distintas de nível de cinza. \citeonline{SZELISKU2010}, define que uma borda é uma fronteira entre regiões de diferentes cores, intensidades ou texturas. Já \citeonline{marques1999} definem borda como uma descontinuidade na luminosidade de uma imagem.
 
-Em linhas gerais, para determinar se um pixel da imagem é ou não de borda, calcula-se o gradiente deste pixel e, caso o gradiente seja maior do que um valor de limiar pré-definido, o pixel é considerado como borda \cite{Silva2001}.
+Para \citeonline{Silva2001}, é possível considerar o pixel como borda calculando o gradiente deste pixel e, caso o gradiente seja maior do que um valor de limiar pré-definido, o pixel é considerado como borda. 
 
-A idéia associada à maioria das técnicas para a detecção de bordas é o cálculo de um operador local diferencial que seja sensível a mudanças ou descontinuidade nos níveis de cinza \cite{GONZALEZ2002}. Um operador de derivada pode ser usado para executar essa função, visto que se poderia avaliar a taxa de mudança da função dos níveis de cinza. A taxa de mudança dos níveis de cinza em uma imagem tende a ser maior perto das bordas e menor em áreas constantes, caracterizando as bordas como os pontos máximos da derivada \cite{PEDRINI2008}.
+Para \citeonline{GONZALEZ2002}, a idéia associada à maioria das técnicas para a detecção de bordas é o cálculo de um operador local diferencial que seja sensível a mudanças ou descontinuidade nos níveis de cinza. Um operador de derivada pode ser usado para executar essa função, visto que se poderia avaliar a taxa de mudança da função dos níveis de cinza. A taxa de mudança dos níveis de cinza em uma imagem tende a ser maior perto das bordas e menor em áreas constantes, caracterizando as bordas como os pontos máximos da derivada \cite{PEDRINI2008}.
 
-Segundo \citeonline{Franco2013}, diversas abordagens foram propostas ao longo dos anos para a detecção de bordas em imagens digitais, como por exemplo, os operadores de Roberts, Sobel e Canny. %(DECIDIR QUAL SERA UTILIZADO E PQ).
+Segundo \citeonline{Franco2013}, diversas abordagens foram propostas ao longo dos anos para a detecção de bordas em imagens digitais, como por exemplo, os operadores de Roberts, Hough, Sobel e Canny. A abordagem utilizada nesse trabalho é a transformada de Hough. Segundo \citeonline{PEDRINI2008}, o método de Hough é altamente eficiente na detecção de bordas em linhas retas, assunto em que veremos a seguir.
+%EVERTON: (DECIDIR QUAL SERA UTILIZADO E PQ).
+%Fabiano: Decidi utilizar a transformada de Hough pelo fato de ele ser um bom identificador de linhas retas. o mesmo está descrito abaixo.
 
 Na detecção de linhas retas, \citeonline{SZELISKU2010} diz que parte da complexidade inerente à detecção de linhas retas em imagens vem do fato de que, no mundo real, as linhas são normalmente compostas por componentes desconectados ou mesmo feitas de diversos segmentos colineares, sendo necessário agrupá-los para possibilitar a detecção. Em diversas áreas de PDI surge o problema da determinação da localização e orientação de linhas retas em imagens.
 
@@ -158,7 +165,7 @@ De acordo com \citeonline{GONZALEZ2002}, as principais vantagens da transformada
 Segundo \citeonline{Silveira2006}, a distorção da imagem ocorre devido a diferentes aspectos durante sua captação. A distância entre o plano do objeto e o capturador de imagens promove um erro de perspectiva. Esse tipo de erro pode ser minimizado através do posicionamento do segmento de interesse próximo à tela. A correção de erros de perspectiva é desenvolvida por métodos geométricos de relativa simplicidade e vem sendo amplamente utilizada em imagens de raio x. Indo na direção de estruturas de menor escala, a correção de perspectiva é aplicada em processos de digitalização de documentos, onde a correção de distorções na imagem, acarreta em uma maior capacidade de reconhecimento de caracteres em um texto digitalizado \cite{Pereira}. 
 
 A imagem 7 mostra dois exemplos de imagens distorcidas, capturadas por uma câmera digital de baixa resolução e suas respectivas correções. Há uma grande variedade de programas e aplicativos capazes de corrigir as distorções de perspectiva em imagens. Ainda que os programas consigam corrigir as distorções por perspectiva de maneira satisfatória, a correção não se dá em tempo real, além de requerer uma interface gráfica com o usuário para que a correção seja feita.
- \begin{figure}[h]
+ \begin{figure}[!h]
 	\centering
 	\includegraphics[width=1.0\textwidth]{Imagens/imagensdistorcidas} 
 	\caption[Imagens distorcidas e corrigidas.]{Imagens distorcidas (acima) e corrigidas (abaixo).}
@@ -170,7 +177,7 @@ A imagem 7 mostra dois exemplos de imagens distorcidas, capturadas por uma câme
 
  \begin{figure}[h]
 	\centering
-	\includegraphics[width=1.0\textwidth]{tccv1/Imagens/metodologiacorrecao} 
+	\includegraphics[width=1.0\textwidth]{Imagens/metodologiacorrecao} 
 	\caption[Metodologia de detecção.]{Metodologia de detecção.}
 \fonte{\citeonline{Pereira}}	
 	\label{fig:tux_laplace}
@@ -178,9 +185,7 @@ A imagem 7 mostra dois exemplos de imagens distorcidas, capturadas por uma câme
 
 A detecção do contorno de uma imagem está sujeita às condições de luminosidade do ambiente que podem impor limites na detecção automática do contorno, um algoritmo de detecção de contorno deve apresentar boa imunidade a variações de iluminação do ambiente. \cite{Pereira}.
 
-//TODO estudos nao finalizados. tópico importante
-//iPhone and Android “scanner” apps that let you snap a photo of a document and then have it “scanned” into your phone
-//four_point_transform
+%//TODO estudos nao finalizados. tópico importante: four_point_transform
 
 \section{RECONHECIMENTO ÓPTICO DE CARACTERES (OCR)}
 Reconhecimento óptico de caracteres (OCR) é uma tecnologia que utiliza mecanismos de aquisição, tais como câmeras fotográficas, filmadoras e afins para capturar imagens e posteriormente realizar processamentos nestas para reconhecer caracteres alfanuméricos presentes. Essa tecnologia tenta se aproximar do sistema visual humano, porém ainda não é capaz de competir com a capacidade de leitura deste \cite{Mithe2013}.
@@ -189,7 +194,7 @@ Reconhecimento óptico de caracteres (OCR) é uma tecnologia que utiliza mecanis
 
  \begin{figure}[h]
 	\centering
-	\includegraphics[width=1.0\textwidth]{tccv1/Imagens/areasocr} 
+	\includegraphics[width=1.0\textwidth]{Imagens/areasocr} 
 	\caption[Diferentes áreas de reconhecimento de caracteres.]{Diferentes áreas de reconhecimento de caracteres.}
 \fonte{\citeonline{Eikvil1993}}	
 	\label{fig:tux_laplace}
@@ -209,7 +214,7 @@ Para \citeonline{Eikvil1993}, um sistema de OCR é composto pelos seguintes comp
 
  \begin{figure}[h]
 	\centering
-	\includegraphics[width=1.0\textwidth]{tccv1/Imagens/etapasocr} 
+	\includegraphics[width=1.0\textwidth]{Imagens/etapasocr} 
 	\caption[Sequência de etapas em um sistema OCR.]{Sequência de etapas em um sistema OCR.}
 \fonte{\citeonline{Goswami2013}}	
 	\label{fig:tux_laplace}
@@ -224,7 +229,7 @@ Na Figura 11 está representado a aplicação das técnicas de normalização e 
 
  \begin{figure}[h]
 	\centering
-	\includegraphics[width=1.0\textwidth]{tccv1/Imagens/norm_suav_caracter} 
+	\includegraphics[width=1.0\textwidth]{Imagens/norm_suav_caracter} 
 	\caption[Normalização e redução de ruído de um caractere.]{Normalização e redução de ruído de um caractere.}
 \fonte{\citeonline{Eikvil1993}}	
 	\label{fig:tux_laplace}
@@ -288,7 +293,8 @@ A Figura 12 destaca exemplos de cada um deles em ordem decrescente. O primeiro b
 
  \begin{figure}[h]
 	\centering
-	\includegraphics{tccv1/Imagens/estruturatexto} 
+	
+	\includegraphics[width=1.0\textwidth]{Imagens/estruturatexto} 
 	\caption[Reconhecimento de texto segmentado em texto em blocos, linhas e palavras.]{Reconhecimento de texto segmentado em texto em blocos, linhas e palavras.}
 \fonte{\citeonline{MOBILEVISION}}	
 	\label{fig:tux_laplace}
