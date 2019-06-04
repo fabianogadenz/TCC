@@ -5,17 +5,12 @@ As inovações tecnológicas não são apenas artifícios de conforto, também e
  No Brasil, a queda da taxa de fecundidade, mortalidade e o aumento da longevidade da população vêm contribuindo para o crescente número de idosos com 60 anos ou mais \cite{IBGE2013}. Se, por um lado há o aumento da expectativa de vida e do número de idosos, por outro existe a necessidade de assistência à saúde desta população.
  
  Segundo \citeonline{MURRAY}, o maior consumo de medicamentos é da população idosa, superando todas as outras faixas etárias da população brasileira. Além do tratamento proposto pelo médico, os idosos utilizam produtos não prescritos, ou produtos por engano, tornando então o regime posológico complexo e possibilitam a existência de interações medicamentosas, reações adversas e aumento do custo para o paciente e para a sociedade, levando até a desistência do tratamento correto.
- %FABIANO: UTILIZAR ESSES TERMOS MAIS TECNICOS (REGIME POSOLOGICO E INTERACOES MEDICAMENTOSAS)?
- %EVERTON: SIM. SÃO TERMOS TÉCNICOS DO ASSUNTO
-
+ 
 
 Quanto maior o uso contínuo de remédios distintos, maior a possibilidade de surgir questionamentos em relação ao modo correto de uso, função e contra indicação do medicamento. Para um uso correto dos medicamentos, se faz de suma importância as instruções verbais e escritas, claras e objetivas  emitidas pelo médico que muitas das vezes não é assimilada de maneira adequada pelo paciente idoso, fazendo com que a presença de algum material didático para auxiliá-lo em seu tratamento faz-se de fundamental importância \cite{Didonet2007}. No Brasil, a bula representa o principal material informativo fornecido aos pacientes na aquisição de medicamentos produzidos pela indústria farmacêutica.
 
 Segundo \citeonline{FUJITA2006}, a apresentação gráfica do conteúdo informal nas bulas de remédios induzem sua leitura e compreensão. Deficiências, tanto ao nível de conteúdo com uma linguagem muito formal, quanto na apresentação gráfica das informações em bulas, como por exemplo o tamanho da fonte do texto utilizada, pode ser levado ao mau uso de medicamentos, comprometendo a saúde e até acarretando sérias consequências na saúde do indivíduo, principalmente para os idosos, muitas vezes com limitações motoras ou limitados de informação, devido a idade. 
 
-% AQUI É PRECISO TRAZER ALGUMA COISA A MAIS. O TEXTO ESTÁ POUCO PARA A INTRODUÇÃO. PROCURE POR ARTIGOS QUE TRAGAM SITUAÇÕES ONDE O PROBLEMA DA BULA FOI TRABALHADO. EXISTEM VÁRIOS TRABALHOS QUE AUXILIAM NA ORGANIZAÇÃO DE MEDICAMENTOS PARA IDOSOS. TRAGA ALGUNS DESTES TRABALHOS PARA CÁ. É INTERESSANTE QUE TAMBÉM TRAGA ALGUMA COISA SOBRE O QUE VOCÊ DIZ NO PARÁGRAFO SEGUINTE. É PRECISO INTRODUZIR O TEMA MELHOR AQUI.
-% fabiano: dei uma boa incrementada no conteúdo
-% FICOU BOM: Pode tirar este comentário
 
 Considerando que cada vez mais os dispositivos móveis terão um papel importante para o acompanhamento de saúde \cite{ESTADAOCELULAR}, a importância da leitura das bulas e da difícil compreensão de seu conteúdo para o uso correto e seguro de medicamentos, o presente trabalho visa identificar padrões em imagens com técnicas de processamento de imagem (\sigla{PDI}{Processamento de Imagem}) e reconhecimento ótico de caracteres (\sigla{OCR}{Reconhecimento Ótico de Caracteres}) embarcado no celular, com intenção de melhorar o poder acertivo de OCR por meio de técnicas de PDI como correção de perspectiva da imagem, determinação da área de interesse, com a finalidade de identificar o medicamento por meio de uma foto capturada da embalagem ou da bula do medicamento, utilizando um telefone celular.
 
@@ -26,22 +21,17 @@ Considerando que cada vez mais os dispositivos móveis terão um papel important
 \section{Objetivo Geral}
 
 % EVERTON: veja como deve começar e adapte a escrita para isso. Seu texto ficou confuso.
-Este trabalho tem como objetivo geral ......Voltado ao problema da difícil leitura das bulas de medicamentos, falta de instrução, conhecimento e compreenção na terceira idade, analisar o impacto de técnicas de processamento de imagens e OCR na extração de textos de imagens extraídas por meio de aparelho celular para um aplicativo de auto ajuda no período do tratamento medicamentoso de idosos.
+% FABIANO: mudei.
+Este trabalho tem como objetivo geral uma melhor acessibilidade à informação medicamentosa em tratamento da população de terceira idade, com o auxilio de técnicas de processamento de imagens e OCR na extração de textos de imagens extraídas por meio de aparelho celular para um aplicativo de auto ajuda.
 
 
-
-% EVERTON: não entendi estes comentários, estão sem respostas?
-% ??? Métodos de pré processamento de imagens, como por exemplo, técnicas de iluminação, redução de ruídos e perspectiva da imagem capturada.
-  % PORQUE O DA GOOGLE? AQUI VOCÊ DIZ QUE VAI COMPARAR ELE, MAS PORQUE ELE? SE JÁ ESTÁ DEFINIDO QUE VAI USAR ELE, É BOM FALAR UM POUCO NA INTRUDUÇÃO
-  % ???? Apresentar informações detalhadas do medicamento inspecionado na foto para fácil entendimento de um usuário leigo e também para um agente da saúde.
 
 \section{Objetivos Específicos}
 
 \begin{itemize}
-	\item Analisar o estado da arte em algoritmos de processamento de imagens e OCR.
+    Os objetivos específicos deste trabalho são:
+    \item Especificar o conjunto de técnicas de processamento de imagens que sejam adequadas a imagens de caixas de remédios e bulas de medicamentos.
 	\item Propor uma arquitetura para transformar imagens de caixas de remédios e bulas em textos por meio de técnicas de processamento de imagens e OCR.
-	% EVERTON: isso não seria antes de propor?
-	\item Especificar o conjunto de técnicas de processamento de imagens que sejam adequadas a imagens de caixas de remédios e bulas de medicamentos.
 	\item Analisar qual a eficiência entre o OCR do SDK da Google operando online e offline, aplicados ao problema proposto.
 	\item Analisar os resultados obtidos das possíveis técnicas utilizadas na arquitetura proposta.
 
@@ -55,7 +45,7 @@ O acesso da população idosa ao aparelho celular vem se consolidando cada vez m
 
 No ponto de vista social, este trabalho se justifica em apresentar uma ferramenta simples e fácil para o auxílio na tarefa de polifarmácia de idosos, visando melhor eficácia no tratamento medicamentoso do paciente.
 
-No ponto de vista científico, este trabalho se justifica em apresentar um conjunto de tecnicas baseados em PDI, OCR e desenvolvimento de aplicativo de celular que sejam capazes de melhorar o poder acertivo de um reconhecedor ótico de caracteres, viabilizando o reconhecimento de um medicamento por meio de uma foto, tanto da caixa, embalagem ou bula do mesmo.
+No ponto de vista científico, este trabalho se justifica em apresentar um conjunto de técnicas baseados em PDI, OCR e desenvolvimento de aplicativo de celular que sejam capazes de melhorar o poder acertivo de um reconhecedor ótico de caracteres, viabilizando o reconhecimento de um medicamento por meio de uma foto, tanto da caixa, embalagem ou bula do mesmo.
 
 
 
