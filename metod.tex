@@ -12,16 +12,16 @@ Para o desenvolvimento da metodologia, foi optado por utilizar as tecnologias de
 O Flutter\footnote{https://flutter.dev/} foi construído pela Google com a finalidade de melhorar a qualidade dos aplicativos, a velocidade do desenvolvimento, e para alcançar mais usuários. Ele é um SDK  de código aberto para o desenvolvimento de aplicativos para Desktop, Web e dispositivos móveis como iOS e Android \cite{ARSTECHNICA2017}.
 
 
-O Flutter é um framework que deu muito certo, porque o código é compilado em ARM, ou seja, compila o código para cada plataforma. Isso agiliza a abertura e o desempenho do aplicativo. Além disso, utiliza um renderizador Mobile First acelerado por GPU para que haja consistência da UI entre as plataformas e o dispositivo. Então ele projeta os Widgets com um Framework personalizável e extensível em camadas \cite{IMASTERS}. Não há pontes entre o Framerwork e os Widgets, tornando a renderização eficiente. 
+O Flutter é um poderoso \texttit{framework} porque o código é compilado em ARM, ou seja, compila o código para cada plataforma. Isso agiliza a abertura e o desempenho do aplicativo. Além disso, utiliza um renderizador Mobile First acelerado por GPU para que haja consistência da \texttit{UI} entre as plataformas e o dispositivo. Então o Flutter projeta os \texttit{widgets} com um \texttit{framework} personalizável e extensível em camadas \cite{IMASTERS}. Não há pontes entre o \texttit{framerwork} e os \texttit{widgets}, tornando a renderização eficiente. 
 
 Flutter é escrito em Dart, uma linguagem concisa, fortemente tipificada e orientada a objetos. O Dart é bem semelhante à linguagens como Swift, C#, Java e JavaScript.
 
-Python\footnote{https://www.python.org/} é uma linguagem de programação de alto nível, interpretada, de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte. Atualmente possui um modelo de desenvolvimento comunitário, aberto e gerenciado pela organização sem fins lucrativos Python Software Foundation \cite{PYTHON}.
+Python\footnote{https://www.python.org/} é uma linguagem de programação de alto nível, interpretada, de \texttit{script}, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte. Possui um modelo de desenvolvimento comunitário, aberto e gerenciado pela organização sem fins lucrativos Python Software Foundation \cite{PYTHON}.
 
-Python será utilizado como ponte para o uso da biblioteca OpenCV (Open Source Computer Vision Library). O OpenCV é uma biblioteca multiplataforma, totalmente livre ao uso acadêmico e comercial, para o desenvolvimento de aplicativos na área de Visão computacional. O OpenCV\footnote{https://opencv.org/}
+Python será utilizado como ponte para o uso da biblioteca OpenCV (\texttit{Open Source Computer Vision Library}). O OpenCV é uma biblioteca multiplataforma, totalmente livre ao uso acadêmico e comercial, para o desenvolvimento de   aplicativos na área de Visão computacional. O OpenCV\footnote{https://opencv.org/}
 possui módulos de Processamento de Imagens e Video I/O, Estrutura de dados, Álgebra Linear, GUI (Interface Gráfica do Usuário) básica com sistema de janelas independentes, controle de mouse e teclado, além de mais de 350 algoritmos de visão computacional como: filtros de imagem, calibração de câmera, reconhecimento de objetos, análise estrutural e outros \cite{RVOPENCV}. 
 
-Para a extração dos caracteres da imagem será utilizado o SDK Firebase ML Kit\footnote{https://firebase.google.com/}, após a etapa de pré-processamento será testado a eficácia tanto da sua versão online quanto offline, para uma taxa maior de acertos nas palavras, diminuindo a complexidade da busca pelos registros na base de dados da ANVISA.
+Para a extração dos caracteres da imagem será utilizado o SDK Firebase ML Kit\footnote{https://firebase.google.com/}, após a etapa de pré-processamento será testado a eficácia tanto da sua versão \texttit{online} quanto \texttit{offline}, para uma taxa maior de acertos nas palavras, diminuindo a complexidade da busca pelos registros na base de dados da ANVISA, disponibilizada em seu \texttit{site} oficial.
 
 Os testes serão realizados pode meio do Android Device Manager, um simulador de iPhone X e um iPhone 7 físico. 
 
@@ -34,7 +34,7 @@ Um iPhone 7 será utilizado como dispositivo físico  para testes, equipado com 
 
 \section{Métodos}
 % arnaldo: 3.2 método: criar base (capturar imagens, dizer quantas imagens,  resolução, colorido, iluminação);  pré-processar para tirar as bordas e corrigir a perspectiva; ocr; buscar na base; vai ter algum pos-processamento (ex. corretor ortográfico para contorar falhas do ocr)
-A base de imagens necessária para a realização deste trabalho será coletada por meio de capturas fotográficas com o auxílio de um iPhone 7 que dispõe de uma câmera de 12 MP e resolução de 1334x750 pixeis em uma farmácia da cidade Medianeira com uma boa iluminação ambiente. As imagens serão capturadas de 5 medicamentos aleatórios, e para que haja uma quantidade considerável de imagens, as imagens serão coletadas em diferentes perspectivas, distancias entre câmera e área de interesse e tipos de fundo, totalizando então mais de 135 imagens coloridas padrão RGB.
+A base de imagens necessária para a realização deste trabalho será coletada por meio de capturas fotográficas com o auxílio de um iPhone 7 que dispõe de uma câmera de 12 MP e resolução de 1334x750 pixeis em uma farmácia da cidade Medianeira com uma boa iluminação ambiente. As imagens serão capturadas de 5 medicamentos aleatórios, e para que haja uma quantidade considerável de imagens, as imagens serão coletadas em diferentes perspectivas, distâncias entre câmera e área de interesse e tipos de fundo, totalizando então mais de 135 imagens coloridas padrão RGB.
 
 A imagem em questão passará por seis etapas de pré-processamento com a utilização do OpenCV, conforme demonstrado na Figura~\ref{fig:diagrama}.
 
@@ -55,7 +55,7 @@ A próxima etapa é a aplicação da transformada de perspectiva, onde o objetiv
 
 Com a imagem já tratada, a última etapa do pré-processamento é o recorte da área de interesse já corrigida, substituindo a imagem original, para a extração de texto no OCR.
 
-Após o reconhecimento dos caracteres, é possível que necessite a utilização de um corretor ortográfico para contornar falhas de reconhecimento do OCR. Será testado a eficácia do corretor ortográfico do Firebase ML Kit, que é que um dicionário latino brasileiro. Caso o mesmo não venha atender as expectativas de contorno de falhas do OCR, será estudado outra opção de corretor ortográfico.
+Após o reconhecimento dos caracteres, é possível que necessite a utilização de um corretor ortográfico para contornar falhas de reconhecimento do OCR. Será testado a eficácia do corretor ortográfico do Firebase ML Kit, que é um dicionário latino brasileiro. Caso o mesmo não venha atender as expectativas de contorno de falhas do OCR, será estudado outra opção de corretor ortográfico.
 
 Para finalizar, as palavras encontradas estarão prontas para serem pesquisadas em uma base de dados extraída da ANVISA, para a projeção das informações do medicamento em interesse no aplicativo. 
 

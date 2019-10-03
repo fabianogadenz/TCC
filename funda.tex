@@ -6,7 +6,7 @@ Nessa seção é descrito o estado da arte do tema escolhido. Primeiramente é d
 \section{Processamento Digital de Imagens}
 
 
-Segundo \citeonline{Huang1996} visão computacional possui um propósito duplo. Partindo de um ponto de vista biológico, visão computacional é o estudo dos modelos computacionais do sistema visual humano. Já partindo de um ponto de vista de engenharia, visão computacional tem o objetivo de criar sistemas autônomos capazes de executar tarefas que o sistema visual humano executa, e em alguns casos até supera.
+Segundo \citeonline{Huang1996} visão computacional possui um propósito duplo. Partindo de um ponto de vista biológico, visão computacional é o estudo dos modelos computacionais do sistema visual humano. Já partindo de um ponto de vista de engenharia, visão computacional tem o objetivo de criar sistemas autônomos capazes de executar tarefas que o sistema visual humano executa.
 
 
 Para \citeonline{PEDRINI2008}, a visão computacional pode ser dividida em dois níveis de abstração: processamento de imagens (baixo nível) e análise de imagens (alto nível). O processamento digital de imagens pode ser determinado como um conjunto de técnicas para capturar, representar e transformar imagens utilizando um computador. A aplicação dessas técnicas permite extrair e identificar informações das imagens e melhorar a qualidade visual de aspectos estruturais, simplificando a percepção humana e a interpretação automática por meio de máquinas \cite{PEDRINI2008}. Essa abordagem, de baixo nível, utiliza técnicas como o aumento de contraste, a redução de ruído, a extração de bordas e a compressão de imagens.
@@ -22,8 +22,7 @@ O objeto de operação do Processamento Digital de Imagens são as imagens digit
 
 Os sistemas de PDI consistem em um conjunto de técnicas que possibilitam a captura de imagens por meio de equipamentos variados, como tomógrafos médicos, câmeras fotográficas, satélites e outros, tal como a representação e transformação destas imagens. O propósito é fazer a extração e identificação das informações que fazem parte das imagens, de forma automática por meio de máquinas \cite{PEDRINI2008}.
 
-% EM TODAS AS SEÇÕES VOCÊ DEVERÁ TRAZER ARTIGOS QUE APLICARAM OS TEMAS DAS SEÇÕES E COMENTAR SOBRE O OBJETIVO E RESULTADO OBTIDOS NESTES TRABALHOS.
-%fabiano: tentei encaixar autores relevantes em muitas afirmações. está faltando algum?
+
 
 % EVERTON: Veja a seção 2.1. Você apenas referenciou o tema. É importante que você traga artigos onde o tema da seção foi utilizado e aplicado, trazendo a colaboração e resultado do artigo. Por exemplo> fulano de tal utilizou tal coisa e em seus estudos foi possível ..... É preciso ter referencial assim para todas as suas fundamentações.
 
@@ -31,12 +30,14 @@ Os sistemas de PDI consistem em um conjunto de técnicas que possibilitam a capt
 \subsection{Representação de Imagens Digitais}
 % EVERTON: Você fala sempre deste Gonçalves, não tem outras fontes? Para não ficar direcionado? Talvez buscar por quem tenha utilizado trabalho dele também. Quando se refere a elementos de uma função, coloque em itálico: m, n, M, N, f(x,y)....
 
+%fabiano: trouxe alguns
+
 Segundo \citeonline{Goncalves2016}, uma imagem pode ser representada no plano cartesiano por uma função f(x,y), onde x e y são coordenadas espaciais. A função f(x,y) possui, comumente, um valor em níveis de cinza, ou cor, em qualquer ponto da imagem. O ponto de origem representado pela coordenada (0,0) fica situado no canto superior esquerdo da imagem.
 
 
 
 
-A Figura \ref{img1} ilustra como seria um imagem digital em forma de notação matricial. Os elementos dessa matriz são chamados de elementos pictóricos, elementos de imagens, pels e pixel. O \textit{Pixel} (contração de Picture element) é o termo mais utilizado \cite{GONZALEZ2006}. O índice m representa a linha na qual o pixel se encontra, enquanto que o índice n aponta a coluna na qual está localizado o pixel. Em uma imagem M linhas e N colunas, m terá seu valor variando de 0 até M-1 e n terá seu valor variando de 0 até N-1 \cite{Almeida2018}. 
+A Figura \ref{img1} ilustra como seria um imagem digital em forma de notação matricial. Os elementos dessa matriz são chamados de elementos pictóricos, elementos de imagens, pels e pixel. O \textit{Pixel} (contração de \textit{Picture Element}) é o termo mais utilizado \cite{GONZALEZ2006}. O índice m representa a linha na qual o pixel se encontra, enquanto que o índice n aponta a coluna na qual está localizado o pixel. Em uma imagem M linhas e N colunas, m terá seu valor variando de 0 até M-1 e n terá seu valor variando de 0 até N-1 \cite{Almeida2018}. 
 
  \begin{figure}[h!]
 	\centering
@@ -61,12 +62,13 @@ destacada da imagem.}
 Em uma imagem digital existem vários relacionamentos importantes entre os pixels. Conforme descrito em \citeonline{GONZALEZ2002}, 
 um pixel p de coordenadas (x,y) possui uma vizinhança horizontal e vertical determinadas por (x-1, y), (x+1, y) e (x, y-1), (x, y+1) denominada vizinhança-4, e também uma vizinhança diagonal composta pelas coordenadas (x-1, y-1), (x-1, y+1), (x+1, y-1) e (x+1, y+1), convencionado com o nome de vizinhança-8 a união destas vizinhanças.
 
+
 Quando o pixel p estiver localizado na borda da imagem, alguns dos pixels vizinhos não estarão presentes na imagem. Isto pode ser mais bem entendido analisando-se a figura~\ref{fig:imagem3} que demonstra visualmente o conceito de vizinhança de um pixel.
 
  \begin{figure}[h]
 	\centering
 	\includegraphics[width=1.0\textwidth]{Imagens/imagem3} % <- formatos PNG, JPG e PDF
-	\caption[Texto que vai aparecer na lista de fig.]{Tipos de vizinhança. (a) Vizinhança-4; (b) Vizinhança diagonal; (c) Vizinhança-8.  (a) Imagem; (b) Histograma.}
+	\caption[Texto que vai aparecer na lista de fig.]{Tipos de vizinhança. (a) Vizinhança-4; (b) Vizinhança diagonal; (c) Vizinhança-8. }
 \fonte{\citeonline{Goncalves2016}}%citaç\~ao do livro onde pegou a figura	
 	\label{fig:imagem3}
 \end{figure}
@@ -78,7 +80,8 @@ A conectividade entre pixels é um conceito importante no processamento de image
 
 \section{Ciclo de Gonzalez}
 %EVERTON: Veja a data da sua referência quando fala das últimas décadas. Tem um comentário do PEDRO no meio do texto
-Os dispositivos desempenham um papel essencial em um sistema de processamento de imagem, podendo ser utilizados para aquisição, armazenamento, processamento, transmissão e exibição de imagens. Com o crescente avanço tecnológico e a demanda de certas áreas de aplicação, estes dispositivos têm evoluído de forma significativa nas últimas décadas \cite{PEDRINI2008}.
+%atualizei a referencia da imagem principal para a 3a edicao do livro., bem mais atual, porém o conceito ficou praticamente o mesmo
+Os dispositivos móveis desempenham um papel essencial em um sistema de processamento de imagem, podendo ser utilizados para aquisição, armazenamento, processamento, transmissão e exibição de imagens. Com o crescente avanço tecnológico e a demanda de certas áreas de aplicação, estes dispositivos têm evoluído de forma significativa nas últimas décadas \cite{PEDRINI2008}.
 %(PEDRO: atualizar imagem conforme livro de 2018)
 % slide 11 de link abaixo, tem a 3a edição, você pode buscar no google images ou books caso queira a 4a edição:
 % https://www.slideshare.net/asodariyabhavesh/chapter-1-and-2-gonzalez-and-woods
@@ -90,19 +93,17 @@ Segundo \citeonline{GONZALEZ1992}, as técnicas em análise de imagem podem ser 
 
  \begin{figure}[h]
 	\centering
-	\includegraphics[width=1.0\textwidth]{Imagens/imagem5} % <- formatos PNG, JPG e PDF
-	\caption[Elementos do processo de análise de imagem.]{Elementos do proceso de análise da imagem. }
-\fonte{\citeonline{GONZALEZ1992}}%citaç\~ao do livro onde pegou a figura	
+	\includegraphics[width=1.0\textwidth]{Imagens/ciclogonzalesadap.png} % <- formatos PNG, JPG e PDF
+	\caption[Etapas de um sistema de Processamento de Imagem Digital.]{Etapas de um sistema de Processamento de Imagem Digital. }
+\fonte{\citeonline{ALBUQUERQUECANER}}%citaç\~ao do livro onde pegou a figura	
 	\label{fig:imagem5}
 \end{figure}
 
 
 
 % EVERTON: cuidado que daqui pra frente está parecendo metodologia, como se faz. Aqui é referencial teórico
-O primeiro passo do processo de reconhecimento é a aquisição da imagem. Segundo \citeonline{GONZALEZ1992}, o primeiro passo do processo requer apenas um sensor de imagens e a capacidade para digitalizar o sinal produzido pelo
-sensor. O sensor converte a informação óptica em um sinal elétrico e o digitalizador transforma a imagem analógica em imagem digital. A imagem resultante pode apresentar diversas imperfeições, tais como: presença de pixels ruidosos, contraste e/ou brilho inadequado, etc (MARQUES;VIEIRA, 1999).
-
-Após a aquisição e digitalização da imagem, o próximo passo é o pré-processamento. A função chave do pré-processamento é melhorar a imagem, com o objetivo de aumentar as chances de sucesso dos processos seguintes \cite{GONZALEZ1992}. Nesta etapa, são utilizadas técnicas para aumento de contraste, remoção de ruídos, realce e normalização, com o objetivo de converter os padrões para uma forma que possibilite uma simplificação do processo de reconhecimento \cite{Rodrigues2002}.
+% mudei para etapas, e não passos.
+A primeira etapa do processo do reconhecimento de imagem é a aquisição da imagem, que basicamente é feito por meio de uma câmera fotográfica digital. Após a aquisição e digitalização da imagem, o pré-processamento é a próxima etapa, com o objetivo principal de melhorar a imagem para as etapas na sequência do ciclo \cite{GONZALEZ1992}. Nesta etapa, são utilizadas técnicas para aumento de contraste, remoção de ruídos, realce e normalização, com o objetivo de converter os padrões para uma forma que possibilite uma simplificação do processo de reconhecimento \cite{Rodrigues2002}.
 
 O próximo estágio é o processo chamado de segmentação. A segmentação de imagens, demonstrado na figura~\ref{fig:segmentacao} consiste em dividir uma imagem em suas unidades significativas, para uma melhor caracterização das regiões de interesse (\sigla{ROI}{Região de Interesse}). As operações de segmentação procuram isolar regiões de pontos da imagem pertencentes a objetos, para posterior extração de atributos \cite{Lourdes2010}.
  \begin{figure}[h]
@@ -112,20 +113,20 @@ O próximo estágio é o processo chamado de segmentação. A segmentação de i
 \fonte{\citeonline{SZELISKU2010}}%citaç\~ao do livro onde pegou a figura	
 	\label{fig:segmentacao}
 \end{figure}
-De um modo geral, as técnicas de segmentação utilizam duas abordagens principais: a similaridade entre os pixels e a descontinuidade entre eles. A binarização de imagens, técnica baseada em similaridade, é a técnica mais utilizada, é uma  simples e eficiente técnica do ponto de vista computacional, sendo portanto comumente utilizada em sistemas de visão computacional \cite{ISRAEL2003}.
+De um modo geral, as técnicas de segmentação utilizam duas abordagens principais: a similaridade entre os pixeis e a descontinuidade entre eles. A binarização de imagens, técnica baseada em similaridade, é a técnica mais utilizada, é uma  simples e eficiente técnica do ponto de vista computacional, sendo portanto comumente utilizada em sistemas de visão computacional \cite{ISRAEL2003}.
 
-Na segmentação com descontinuidade entre os pixels, a segmentação é baseada nas técnicas de limiarização, crescimento por regiões, união e divisão de regiões \cite{Rodrigues2002}.  % VEJA QUE AQUI E EM OUTROS PONTOS VOCÊ TRAZ TERMOS ESPECÍFICOS, QUE PODERIAM SER EXPLICADOS EM SEU TEXTO.
+Na segmentação com descontinuidade entre os pixeis, a segmentação é baseada nas técnicas de limiarização, crescimento por regiões, união e divisão de regiões \cite{Rodrigues2002}.  % VEJA QUE AQUI E EM OUTROS PONTOS VOCÊ TRAZ TERMOS ESPECÍFICOS, QUE PODERIAM SER EXPLICADOS EM SEU TEXTO.
 
-A etapa de segmentação é seguida por uma etapa de representação e descrição, na qual, através de descritores, busca-se obter um conjunto de dados correspondentes àquela imagem.
+A etapa de segmentação é seguida por uma etapa de representação e descrição, na qual, por meio de descritores, busca-se obter um conjunto de dados correspondentes àquela imagem.
 
-Normalmente, após a segmentação, dados brutos de pixel são obtidos. Por consequência, pode ser fundamental o processo de converter os dados para uma forma apropriada, possibilitando o processamento digital. 
+Normalmente, após a segmentação, dados brutos de pixeis são obtidos. Por consequência, pode ser fundamental o processo de converter os dados para uma forma apropriada, possibilitando o processamento digital. 
 
 Dois tipos de representação podem ser utilizados: representação limite ou representação regional. Quando o foco está com características de localização nas extremidades, como por exemplo cantos e bordas da imagem, é apropriada a representação limite. Representação regional é apropriada quando o foco está localizado no centro da imagem e é possível encontrar uma vizinhança-8. Escolher a representação é apenas uma parcela da solução para a conversão de dados brutos em uma forma adequada para o processamento computacional. \cite{Rodrigues2002}
 %EVERTON: Estou preocupado com a época das referências. São muito antigas. Nada mudou neste período?
 
-O ultimo estágio no processo de análise da imagem envolve reconhecimento e interpretação. Reconhecimento é o processo que fixa um rótulo a um objeto baseado na informação extraída na etapa anterior. Interpretação envolve a fixação de significado a um grupo de objetos reconhecidos. Para resolver problemas de reconhecimento pode-se partir de três abordagens: estatística, estrutura e neural \cite{GONZALEZ1992}.
+O último estágio no processo de análise da imagem envolve reconhecimento e interpretação. Reconhecimento é o processo que fixa um rótulo a um objeto baseado na informação extraída na etapa anterior. Interpretação envolve a fixação de significado a um grupo de objetos reconhecidos. Para resolver problemas de reconhecimento pode-se partir de três abordagens: estatística, estrutural e neural \cite{GONZALEZ1992}.
 
-Todas as etapas descritas pressupõem a existência de um conhecimento sobre o problema a ser resolvido, armazenado em uma base de conhecimento, cujo tamanho e complexidade podem variar enormemente. Idealmente, esta base de conhecimento deveria não somente guiar o funcionamento de cada etapa, mas também permitir a realimentação entre elas, \cite{marques1999}.
+Todas as etapas descritas pressupõem a existência de um conhecimento sobre o problema a ser resolvido, armazenado em uma base de conhecimento, cujo tamanho e complexidade podem variar bastante. Idealmente, esta base de conhecimento deveria não somente guiar o funcionamento de cada etapa, mas também permitir a realimentação entre elas \cite{marques1999}.
 
 
 \section{Detecção de Bordas}
@@ -136,13 +137,13 @@ Para \citeonline{Silva2001}, é possível considerar o pixel como borda calculan
 
 Para \citeonline{GONZALEZ2002}, a ideia associada à maioria das técnicas para a detecção de bordas é o cálculo de um operador local diferencial que seja sensível a mudanças ou descontinuidade nos níveis de cinza. Um operador de derivada pode ser usado para executar essa função, visto que se poderia avaliar a taxa de mudança da função dos níveis de cinza. A taxa de mudança dos níveis de cinza em uma imagem tende a ser maior perto das bordas e menor em áreas constantes, caracterizando as bordas como os pontos máximos da derivada \cite{PEDRINI2008}.
 
-Segundo \citeonline{Franco2013}, diversas abordagens foram propostas ao longo dos anos para a detecção de bordas em imagens digitais, como por exemplo, os operadores de Roberts, Hough, Sobel e Canny. A abordagem utilizada nesse trabalho é a transformada de Hough. Segundo \citeonline{PEDRINI2008}, o método de Hough é altamente eficiente na detecção de bordas em linhas retas.
-%EVERTON: A abordagem utilizada nesse trabalho é a transformada de Hough isso deverá estar no MATERIAL E MÉTODOS se for sobre seu trabalho.
+Segundo \citeonline{Franco2013}, diversas abordagens foram propostas ao longo dos anos para a detecção de bordas em imagens digitais, como por exemplo, os operadores de Roberts, Hough, Sobel e Canny. Segundo \citeonline{PEDRINI2008}, o método de Hough é altamente eficiente na detecção de bordas em linhas retas.
+
 
 Na detecção de linhas retas, \citeonline{SZELISKU2010} diz que parte da complexidade inerente à detecção de linhas retas em imagens vem do fato de que, no mundo real, as linhas são normalmente compostas por componentes desconectados ou mesmo feitas de diversos segmentos colineares, sendo necessário agrupá-los para possibilitar a detecção. Em diversas áreas de PDI surge o problema da determinação da localização e orientação de linhas retas em imagens.
-%EVERTON: O texto Em diversas áreas de PDI surge o problema da determinação da localização e orientação de linhas retas em imagens. parece largado. Sem ligação com o que vinha sendo dito.
 
-\citeonline{PEDRINI2008} citam que o problema na detecção de linhas retas consiste essencialmente em achar subconjuntos de pontos que sejam colineares e que o método conhecido como Transformada de Hough é eficiente nesta tarefa. A transformada de Hough vem sendo usada para esta finalidade em imagens binárias, onde seu princípio básico é a conversão de coordenadas de um ponto no plano cartesiano em parâmetros em que descrevem este ponto em termos de inclinação e distância de um ponto de origem.
+
+\citeonline{PEDRINI2008} cita que o problema na detecção de linhas retas consiste essencialmente em achar subconjuntos de pontos que sejam colineares e que o método conhecido como Transformada de Hough é eficiente nesta tarefa. A transformada de Hough vem sendo usada para esta finalidade em imagens binárias, onde seu princípio básico é a conversão de coordenadas de um ponto no plano cartesiano em parâmetros em que descrevem este ponto em termos de inclinação e distância de um ponto de origem.
 
 
 A transformada de Hough é capaz de detectar grupos de pixeis que pertencem a uma linha reta (mesmo que esteja quebrada e/ou com ruídos). Uma linha reta é geralmente descrita como y = mx + b. As características desta reta são a inclinação m e a intersecção b. Assim, uma reta y = mx + b pode ser representada como um ponto (b, m) no espaço dos parâmetros \cite{HOUGHKIM}. 
@@ -154,14 +155,14 @@ Porém, ambos parâmetros são ilimitados, isto é, à medida em que a reta torn
 \label{eq:eqreta}
 \end{equation}
 
-$(\rho)$ é a distancia perpendicular da origem (0,0) à reta e $(\theta)$ é o angulo formado entre a reta perpendicular e o eixo x, o espaço $(\theta, \rho)$ deve ser discretizado de modo a permitir sua implementação conforme figura ~\ref{fig:eqreta}. Como $(\theta)$ é medido em relação ao eixo x, os valores possíveis variam de 0$^{\circ}$ a 180$^{\circ}$ e uma discretização com incremento de 1$^{\circ}$ deixaria 181 ângulos possíveis \cite{PEDRINI2008}.
+$(\rho)$ é a distância perpendicular da origem (0,0) à reta e $(\theta)$ é o angulo formado entre a reta perpendicular e o eixo x, o espaço $(\theta, \rho)$ deve ser discretizado de modo a permitir sua implementação conforme figura ~\ref{fig:eqreta}. Como $(\theta)$ é medido em relação ao eixo x, os valores possíveis variam de 0$^{\circ}$ a 180$^{\circ}$ e uma discretização com incremento de 1$^{\circ}$ deixaria 181 ângulos possíveis \cite{PEDRINI2008}.
 
 De acordo com \citeonline{GONZALEZ2002}, as principais vantagens da transformada de Hough é que mesmo segmentos que apresentem regiões obstruídas por outros objetos podem ser detectados, e sua baixa sensibilidade à ruído, já que os pontos de uma imagem corrompidos por esse ruído dificilmente serão mapeados em uma mesma célula de acumulação.
 
  \begin{figure}[h]
 	\centering
 	\includegraphics[width=1.0\textwidth]{Imagens/eqreta} 
-	\caption[Representação de uma reta através de coordenadas polares.]{Representação de uma reta através de coordenadas polares.}
+	\caption[Representação de uma reta por meio de coordenadas polares.]{Representação de uma reta por meio de coordenadas polares.}
 \fonte{\citeonline{HOUGHKIM}}	
 	\label{fig:eqreta}
 \end{figure}
@@ -171,16 +172,16 @@ De acordo com \citeonline{GONZALEZ2002}, as principais vantagens da transformada
 
 Segundo \citeonline{Silveira2006}, a distorção da imagem ocorre devido a diferentes aspectos durante sua captação. A distância entre o plano do objeto e o capturador de imagens promove um erro de perspectiva. Esse tipo de erro pode ser minimizado por meio do posicionamento do segmento de interesse próximo à tela. A correção de erros de perspectiva é desenvolvida por métodos geométricos de relativa simplicidade e vem sendo amplamente utilizada em imagens de raio x. Indo na direção de estruturas de menor escala, a correção de perspectiva é aplicada em processos de digitalização de documentos, onde a correção de distorções na imagem, acarreta em uma maior capacidade de reconhecimento de caracteres em um texto digitalizado \cite{Pereira}. 
 
-A imagem 7 mostra dois exemplos de imagens distorcidas, capturadas por uma câmera digital de baixa resolução e suas respectivas correções. Há uma grande variedade de programas e aplicativos capazes de corrigir as distorções de perspectiva em imagens. Ainda que os programas consigam corrigir as distorções por perspectiva de maneira satisfatória, a correção não se dá em tempo real, além de requerer uma interface gráfica com o usuário para que a correção seja feita.
+A figura~\ref{fig:imagensdistorcidas} mostra dois exemplos de imagens distorcidas, capturadas por uma câmera digital de baixa resolução e suas respectivas correções. Há uma grande variedade de programas e aplicativos capazes de corrigir as distorções de perspectiva em imagens. Ainda que os programas consigam corrigir as distorções por perspectiva de maneira satisfatória, a correção não se dá em tempo real, além de requerer uma interface gráfica com o usuário para que a correção seja feita.
  \begin{figure}[!h]
 	\centering
 	\includegraphics[width=1.0\textwidth]{Imagens/imagensdistorcidas} 
 	\caption[Imagens distorcidas e corrigidas.]{Imagens distorcidas (acima) e corrigidas (abaixo).}
 \fonte{\citeonline{Pereira}}	
-	\label{fig:tux_laplace}
+	\label{fig:imagensdistorcidas}
 \end{figure}
 
-\citeonline{ZHANG2007} Abordam uma proposta de automatização de correção de imagens fotográficas de quadros brancos.A detecção dos limites formados pelo quadrilátero de uma projeção ou de um quadro branco é o principal obstáculo para a realização de um sistema automatizado de correção de distorções de perspectiva. Os procedimentos descritos por \citeonline{ZHANG2007} são mostrados na figura~\ref{fig:metodologiacorrecao}, onde a transformada de Hough é usada para a detecção dos limites do quadro ou projeção.
+\citeonline{ZHANG2007} aborda uma proposta de automatização de correção de imagens fotográficas de quadros brancos. A detecção dos limites formados pelo quadrilátero de uma projeção ou de um quadro branco é o principal obstáculo para a realização de um sistema automatizado de correção de distorções de perspectiva. Os procedimentos descritos por \citeonline{ZHANG2007} são mostrados na figura~\ref{fig:metodologiacorrecao}, onde a transformada de Hough é usada para a detecção dos limites do quadro ou projeção.
 
  \begin{figure}[h]
 	\centering
@@ -195,24 +196,23 @@ A detecção do contorno de uma imagem está sujeita às condições de luminosi
 %//TODO estudos nao finalizados. tópico importante: four_point_transform
 
 \section{RECONHECIMENTO ÓPTICO DE CARACTERES (OCR)}
-Reconhecimento óptico de caracteres (OCR) é uma tecnologia que utiliza mecanismos de aquisição, tais como câmeras fotográficas, filmadoras e afins para capturar imagens e posteriormente realizar processamentos nestas para reconhecer caracteres alfanuméricos presentes. Essa tecnologia tenta se aproximar do sistema visual humano, porém ainda não é capaz de competir com a capacidade de leitura deste \cite{Mithe2013}.
+Reconhecimento óptico de caracteres é uma tecnologia que utiliza mecanismos de aquisição, tais como câmeras fotográficas, filmadoras e afins para capturar imagens e posteriormente realizar processamentos nestas para reconhecer caracteres alfanuméricos presentes. Essa tecnologia tenta se aproximar do sistema visual humano, porém ainda não é capaz de competir com a capacidade de leitura deste \cite{Mithe2013}.
 
- Existem diversas técnicas de identificação automática, na qual cada uma satisfaz às necessidades de sua área de aplicação. Reconhecimento de voz, tarja magnética, código de barra, impressão digital e OCR são exemplos de aplicações que utilizam tecnologias de identificação automática. Segundo \citeonline{Bhatia2014}, os sistemas de OCR são aqueles capazes de transformar uma grande quantidade de documentos, tanto impresso como manuscrito, em texto de máquina codificado. O reconhecimento de caracteres pode ser desempenhado off-line, onde ocorre após a escrita ou impressão do documento estiver finalizada, porém o reconhecimento também pode ser on-line onde o computador reconhece os caracteres na maneira que eles vão sendo desenhados \cite{Eikvil1993}. A figura~\ref{fig:areaocr} mostra as possíveis etapas para o reconhecimento de caracteres.
+ Existem diversas técnicas de identificação automática, na qual cada uma satisfaz às necessidades de sua área de aplicação. Reconhecimento de voz, tarja magnética, código de barra, impressão digital e OCR são exemplos de aplicações que utilizam tecnologias de identificação automática. Segundo \citeonline{Bhatia2014}, os sistemas de OCR são aqueles capazes de transformar uma grande quantidade de documentos, tanto impresso como manuscrito, em texto de máquina codificado. O reconhecimento de caracteres pode ser realizado no modo off-line, onde ocorre após a escrita ou impressão do documento estiver finalizada, porém o reconhecimento também pode ser on-line onde o computador reconhece os caracteres na maneira que eles vão sendo desenhados \cite{Eikvil1993}. A figura~\ref{fig:areaocr} mostra as possíveis etapas para o reconhecimento de caracteres.
 
-%EVERTON: Troque no parágrafo anterior a palavra desempenhado. Seria realizado?
  \begin{figure}[h]
 	\centering
 	\includegraphics[width=1.0\textwidth]{Imagens/areasocr} 
 	\caption[Diferentes áreas de reconhecimento de caracteres.]{Diferentes áreas de reconhecimento de caracteres.}
 \fonte{\citeonline{Eikvil1993}}	
 	\label{fig:areaocr}
-\end{figure}
+\end{figure}https://www.overleaf.com/project/5ceea144a90cbe6a3870abe0
 
 Para \citeonline{Eikvil1993}, o princípio fundamental para o reconhecimento
 automático de caracteres é ensinar a máquina padrões que podem ocorrer e como eles se assemelham. No caso do OCR, os padrões são letras, números e alguns símbolos especiais como vírgulas, pontos de interrogação, entre outros. O ensino da máquina é feito por meio de amostragem de exemplos de textos com as devidas correspondências.
 Com base nesses exemplos a máquina constrói um protótipo ou uma
-descrição de cada classe de caracteres. Então, durante o reconhecimento, os caracteres desconhecidos são comparados com os anteriormente aprendidos, e então se atribuiu a melhor correspondência \cite{Eikvil1993}.
-% EVERTON: Cuidado no uso de "através". Muitas vezes é "por meio". Veja no final do parágrafo anterior "atribuiu". Está certo? Não é"atribui"?
+descrição de cada classe de caracteres. Então, durante o reconhecimento, os caracteres desconhecidos são comparados com os anteriormente aprendidos, e então se atribui a melhor correspondência \cite{Eikvil1993}.
+
 
 \subsection{Componentes de um sistema OCR}
 Um sistema típico de OCR consiste em diversos componentes, podendo variar de
@@ -279,17 +279,13 @@ Outra técnica utilizada no pós-processamento é a detecção e correção de e
 
 \subsection{Bibliotecas de OCR}
 
-As primeiras máquinas de reconhecimento eram todos dispositivos físicos de hardware. Atualmente essas máquinas ainda são utilizadas para aplicações específicas onde a velocidade é de grande importância, como por exemplo ordenação de cartas, leitura de cheques e verificação de passaportes (EIKVIL, 1993). Pelo fato de essas máquinas terem um custo de fabricação alto e com os avanços da computação, foi tornando possível a implementação de softwares de OCR que operam em computadores pessoais. Entretanto, existem algumas limitações para o sistema de OCR, especialmente em relação a velocidade e o tipo de caractere a ser lido (EIKVIL, 1993). 
+Atualmente, existem modernas e sofisticadas aplicações que conseguem desempenhar bons resultados na extração de texto de imagens, como por exemplo o Google Cloud Vision API e o Microsoft Vision \sigla{API}{Interface de Programação de Aplicativos}. Essas aplicações utilizam modelos de aprendizado de máquina capazes de extrair diversas características da imagem e possivelmente bons resultados na extração de texto.
 
-% EVERTON: E de 94 pra cá? Novamente, sempre que cita ano e referências, são muito antigas.
-Entre os anos de 1985 e 1994 foi desenvolvido pela empresa HP (Hewlett Packard), um sistema de OCR compatível com diversos sistemas operacionais chamado de Tesseract. No ano de 1996 ele teve a portabilidade para o sistema operacional Windows e logo em seguida em 1998 seu código foi reescrito da linguagem C para C++. Após seu funcionamento apresentar bons resultados, em 2005 a licença Apache foi liberada com a ideologia de software livre, tendo o desenvolvimento patrocinado pela Google e por desenvolvedores do mundo todo. Essa poderosa ferramenta pode reconhecer texto de até 60 diferentes idiomas. Embora o Tesseract seja uma aplicação de OCR gratuita, o resultado de sua aplicação em imagens digitais de documentos pode não conter todas as informações desejadas. Entretanto, existem outras aplicações modernas que conseguem desempenhar bons resultados na extração de texto de imagens, como por exemplo o Google Cloud Vision API e o Microsoft Vision API. Essas aplicações utilizam modelos de aprendizado de máquina capazes de extrair diversas características da imagem e possivelmente bons resultados na extração de texto.
+Será apresentado na sequência, detalhes do  SDK Firebase \sigla{ML}{Machine Learn} Kit que é o SDK voltado para dispositivos móveis da API Google Cloud Vision, que leva a experiência em aprendizado de máquina do Google para aplicativos Android e iOS em forma de um pacote de desenvolvimento \cite{CODELABS}. A API do Mobile Vision fornece uma estrutura para encontrar objetos em fotos e vídeos. A estrutura inclui detectores, que localizam e descrevem objetos visuais em imagens ou quadros de vídeo, e uma API orientada a eventos que rastreia a posição desses objetos em vídeo. Atualmente, a API do Mobile Vision inclui detectores de face , código de barras e texto, que podem ser aplicados separadamente ou em conjunto \cite{INTROMOBILEVISION}.
 
-% EVERTON: Não escreva como está neste início. Não é post ou tutorial. Fale da tecnologia diretamente. Quando você fala "atualmente", que época é? Evite estes termos.
-Será apresentado na sequência, detalhes do SDK Firebase ML Kit (Firebase Machine Learn Kit) que é o SDK voltado a para dispositivos móveis da API Google Cloud Vision, que leva a experiência em aprendizado de máquina do Google para aplicativos Android e iOS em um pacote poderoso e fácil de usar \cite{CODELABS}. A API do Mobile Vision fornece uma estrutura para encontrar objetos em fotos e vídeos. A estrutura inclui detectores, que localizam e descrevem objetos visuais em imagens ou quadros de vídeo, e uma API orientada a eventos que rastreia a posição desses objetos em vídeo. Atualmente, a API do Mobile Vision inclui detectores de face , código de barras e texto , que podem ser aplicados separadamente ou em conjunto \cite{INTROMOBILEVISION}.
+% O pacote de visão inclui uma estrutura de funcionalidade de base comum e sub pacotes para implementações de detectores específicos como detector de face, detector de código de barras e também detector de texto \cite{INTROMOBILEVISION}.
 
-O pacote de visão inclui uma estrutura de funcionalidade de base comum e sub pacotes para implementações de detectores específicos como detector de face, detector de código de barras e também detector de texto \cite{INTROMOBILEVISION}.
-
-O ML Kit facilita a aplicação de técnicas de ML em seus aplicativos, trazendo as tecnologias ML do Google, como a API do Google Cloud Vision, o Mobile Vision e o TensorFlow Lite, juntos em um único SDK \cite{CODELABS}.
+O \textit{Kit} de \textit{Machine Learn} da Google facilita a aplicação de técnicas de \textit{Machine Learn} nos aplicativos desenvolvidos, como a \texttit{API} do Google \texttit{Cloud Vision}, o Mobile Vision e o TensorFlow Lite, juntos em um único SDK \cite{CODELABS}.
 
 No processo de detecção e reconhecimento de texto em imagens, uma vez detectado, o reconhecedor determina o texto real em cada bloco e o segmenta em linhas e palavras. A API de texto detecta texto em idiomas latinos (francês, alemão, inglês, etc.) em tempo real no dispositivo.
 
