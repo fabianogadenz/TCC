@@ -1,22 +1,22 @@
 \chapter{RESULTADOS E Discussões}\label{ch:intro}
 
-Utilizando os materiais e métodos previamente apresentados, nesse capítulo serão mostrados e discutidos como foi criado o aplicativo proposto, as tecnologias utilizadas, os experimentos realizados nas imagens capturadas, como foi criado o banco de dados, o que foi modificado em busca de melhores resultados e os respectivos resultados desse experimento.
+Utilizando os materiais e métodos previamente apresentados, nesse capítulo é mostrado e discutido o processo de criação para o aplicativo proposto, as tecnologias utilizadas, os experimentos realizados nas imagens capturadas, como foi criada a base de dados, o que foi modificado em busca de melhores resultados e os respectivos resultados do experimento deste estudo.
 
 
 \section{Desenvolvimento do aplicativo}
-Inicialmente, os aplicativos criados nesse trabalho foram desenvolvidos com a ajuda do \textit{framework} Flutter, como previstos nos materiais e métodos. A versão utilizada para os experimentos foram as versões 1.9 do Flutter e 2.5 do Dart, no ambiente de desenvolvimento \textit{Windows 10 64 bits} por meio da \textit{IDE} Android Studio e com a ajuda de um dispositivo celular de baixo custo de modelo Samsung J2 Prime, portando um processador de 1.4 \textit{GHz Quad Core} e uma câmera traseira de 8 \textit{megapixel}. 
+Inicialmente, os aplicativos criados nesse trabalho foram desenvolvidos fazendo uso do \textit{framework} Flutter, como previstos nos materiais e métodos. A versão utilizada para os experimentos foram as versões 1.9 do Flutter e 2.5 do Dart (linguagem utilizada pelo Flutter). O ambiente para o desenvolvimento foi \textit{Windows 10 64 bits} e a ferramenta específica para a implementação foi a \textit{IDE} Android Studio %QUAL VERSÃO?. Os testes de execução da aplicação ocorreu em um dispositivo celular  modelo Samsung J2 Prime, portando um processador de 1.4 \textit{GHz Quad Core} e uma câmera traseira de 8 \textit{megapixel}. %SERA QUE ISSO NÃO DEVERIA ESTAR NO CAPÍTULO ANTERIOR? APENAS PARA CONFIRMAR, O FLUTTER E DART ESTÃO NO REFERENCIAL?
 
-A para a configuração do OCR, foi feito o uso do framework Firebase MLKit para o reconhecimento de caracteres, o mesmo possui recurso de reconhecimento \textit{online} e \textit{offline}, onde foi aplicada a comparação do reconhecedor de caracteres tanto online no servidor do \textit{framework} quanto \textit{offline} no dispositivo.
+%MELHORAR ESTE INÍCIO ATÉ A VÍRGULA. COMO ASSIM CONFIGURAR O OCR?Para a configuração do OCR, foi utilizado o framework Firebase MLKit para o reconhecimento de caracteres. Este framework possui recursos para reconhecimento %DO QUE?\textit{online} e \textit{offline}, %MELHORAR ESTA LIGAÇÃO ->onde foi aplicada<- a comparação do reconhecedor de caracteres, tanto online no servidor do \textit{framework}, quanto \textit{offline} no dispositivo.
 
-O pacote de desenvolvimento do \textit{Firebase ML Vision} foi utilizado na versão 0.9.2, lançada em 23 de julho de 2019.	Utilizando o pacote de desenvolvimento do \textit{Firebase Vision}, é possível extrair o texto de 3 diferentes formas: em blocos, linha e palavras, todas com seu nível de confiança de 0 a 100 porcento.
+O pacote de desenvolvimento do \textit{Firebase ML Vision} foi utilizado na versão 0.9.2, lançada em 23 de julho de 2019.	Utilizando o pacote de desenvolvimento do \textit{Firebase Vision}, é possível extrair o texto em 3 diferentes formas: em blocos, linha e palavras, todas com seu nível de confiança de 0 a 100 porcento. % COMO ASSIM DE 0 A 100? PODE NÃO SER CONFIÁVEL, 0, E PODE SER CONFIÁVEL, 100? DE ONDE TIROU ESTA INFORMAÇÃO?
  
- Para armazenar os dados dos medicamentos extraídos do bulário da Anvisa, foi configurado um banco de dados \textit{SQLite} na versão 1.1.6, lançada em 25 junho de 2019.
+ Para armazenar os dados dos medicamentos extraídos do bulário da Anvisa, foi configurado um banco de dados \textit{SQLite} na versão 1.1.6, lançada em 25 junho de 2019. %SERÁ QUE TUDO QUE ESTÁ NESTA SEÃO 4.1, NÃO DEVERIA ESTAR NO MATERIAL E MÉTODOS? TROCA UMA IDEIA COM O ARNALDO E JORGE SOBRE ISSO, POIS ESTE CAPÍTULO FALA DE RESULTADOS E ISSO TUDO PARA MIM PARECE METODOLOGIA UTILIZADA PARA SE CHEGAR AOS RESULTADOS.
 
 \subsection{Coleta de imagens}
 
-Após o início do aplicativo e finalizada a funcionalidade de captura de imagens, foram coletadas 6 caixas de medicamentos com especificações diferentes, entre elas: proporções, fontes, cores e finalidade. Entre as caixas de medicamento, apenas um medicamento entre os 6 não é regulamentarizado pela a Anvisa, o que foi um ponto importante para o desenvolvimento do aplicativo. Todas as caixas coletadas foram fornecidas pela farmácia Hiper Farma da cidade de Medianeira. Dessa forma, foi possível ser construído a base de imagens conforme exposto na sessão de materiais e métodos.
+Após o início do % DO QUE?aplicativo e finalizada a funcionalidade de captura de imagens, foram coletadas 6 caixas de medicamentos com especificações diferentes, entre elas: proporções, fontes, cores e finalidade. Entre as caixas de medicamento, apenas um medicamento entre os 6 não é regulamentarizado pela a Anvisa, o que foi um ponto importante para o desenvolvimento do aplicativo. Todas as caixas coletadas foram fornecidas pela farmácia Hiper Farma da cidade de Medianeira. Dessa manaeira, foi possível ser construído a base de imagens conforme exposto na sessão de materiais e métodos.%NÃO SERIA INTERESSATE COOLOCAR NO MATERIAL ESTES MEDICAMENTOS?
 
-A base de imagens contém 150 imagens com resolução de 3264x2448 \textit{pixel}, classificadas em 5 categorias: 
+A base %DE?? composta por 150 imagens com resolução de 3264x2448 \textit{pixel}, classificadas em 5 categorias: 
 
   \begin{enumerate}
    \item Fotos em ambiente com boa luminosidade.
@@ -28,16 +28,18 @@ A base de imagens contém 150 imagens com resolução de 3264x2448 \textit{pixel
  
 
 
- Todas as categorias são compostas por imagens de 6 medicamentos, cada medicamento possui 5 fotos em cada categoria, cada foto foi capturada em uma diferente perspectiva, formando assim, 5 perspectivas que são:
+ Todas as categorias são compostas por imagens de 6 medicamentos, onde cada medicamento possui 5 fotos em cada categoria. Cada foto foi capturada em uma diferente perspectiva, formando assim, 5 perspectivas, que são:
    \begin{enumerate}
    \item Fotos chapadas, com a captura perpendicular ao plano de interesse da caixa.
    \item Fotos do topo, com inclinação média de 15 graus no topo em relação ao plano de interesse da caixa.
-    \item Fotos da lateral esquerda, com inclinação aproximada de 15 graus no na lateral esquerda em relação ao plano de interesse da caixa.
+    \item Fotos da lateral esquerda, com inclinação aproximada de 15 graus na lateral esquerda em relação ao plano de interesse da caixa.
     \item Fotos da lateral direita, com inclinação média de 15 graus na lateral direita em relação ao plano de interesse da caixa.
     \item Fotos da base inferior, com inclinação média de 15 graus na base inferior em relação ao plano de interesse da caixa.
  \end{enumerate}
  
- No decorrer da criação da base de imagens, foi constado que o dispositivo não possui boa captura de imagens em ambientes com baixa luminosidade, mas ainda assim optou-se por efetuar a captura e os testes pelo fato de reproduzir uma situação remota e existente no cotidiano dos brasileiros.
+ % PODERIA TRAZER ESTAS IMAGENS PARA SERE VISUALIZADAS PELO LEITOR
+ 
+ No decorrer da criação da base de imagens, foi constatado que o dispositivo %QUAL? não possui boa captura de imagens em ambientes com baixa luminosidade, mas ainda assim optou-se por realizar a captura e os testes. pelo fato de reproduzir uma situação remota e existente no cotidiano dos brasileiros.
  
  
  
