@@ -29,7 +29,7 @@ Os testes serão realizados por meio de um dispositivo físico, Samsung J2 com p
 
 \section{Coleta de imagens}
 
-Foi necesário ser feita a coleta de caixas de medicamentos para formar a base de imagens. Foram coletadas 6 caixas de medicamentos conforme a Figura \ref{exemplares}, com especificações diferentes, entre elas: proporções, fontes, cores e finalidade. Entre as caixas de medicamento, apenas um medicamento entre os 6 não é regulamentarizado pela a Anvisa, o que foi um ponto importante para o desenvolvimento do aplicativo. Todas as caixas coletadas foram fornecidas pela farmácia Hiper Farma da cidade de Medianeira. Dessa manaeira, foi possível ser construído a base de imagens.
+Foi necessária a realização da coleta de caixas de medicamentos para formar a base de imagens. Foram coletadas 6 caixas de medicamentos conforme a Figura \ref{exemplares}, com especificações diferentes, entre elas: proporções, fontes, cores e finalidade. Entre as caixas de medicamentos, apenas um medicamento entre os 6 não é regulamentado pela a Anvisa, o que foi um ponto importante para o desenvolvimento do aplicativo. Todas as caixas coletadas foram fornecidas pela farmácia Hiper Farma da cidade de Medianeira. Dessa maneira, foi possível ser construída a base de imagens.
 
  \begin{figure}[h!]
 	\centering
@@ -70,12 +70,12 @@ A base de imagens composta por 150 imagens com resolução de 3264x2448 \textit{
  
  
  No decorrer da criação da base de imagens, foi constatado que o dispositivo celular Samsung J2 
- não possui boa captura de imagens em ambientes com baixa luminosidade, mas ainda assim optou-se por realizar a captura e os testes, pelo fato de reproduzir uma situação remota e existente no cotidiano dos brasileiros.
+ não possui boa captura de imagens em ambientes com baixa luminosidade, mas ainda assim optou-se por realizar a captura e os testes, pelo fato de reproduzir uma situação assim, que pode ocorrer com futuros usuários da aplicação em estudo.
 
 
 \section{Desenvolvimento do aplicativo}
 Inicialmente, os aplicativos criados nesse trabalho foram desenvolvidos fazendo uso do \textit{framework} Flutter, como previstos na sessão de materiais. A versão utilizada para os experimentos foram as versões 1.9 do Flutter e 2.5 do Dart (linguagem utilizada pelo Flutter). O ambiente para o desenvolvimento foi \textit{Windows 10 64 bits} e a ferramenta específica para a implementação foi a \textit{IDE} Android Studio versão 3.5.
-Os testes de execução da aplicação ocorreu em um dispositivo celular  modelo Samsung J2 Prime, portando um processador de 1.4 \textit{GHz Quad Core} e uma câmera traseira de 8 \textit{megapixel}. 
+Os testes de execução da aplicação ocorreram em um dispositivo celular  modelo Samsung J2 Prime, portando um processador de 1.4 \textit{GHz Quad Core} e uma câmera traseira de 8 \textit{megapixel}. 
 
 Para a configuração do plugin que faz uso do OCR, foi utilizado o framework Firebase MLKit para o reconhecimento de caracteres. Este framework possui recursos para reconhecimento de imagens
 \textit{online} e \textit{offline},
@@ -99,8 +99,10 @@ O pacote de desenvolvimento do \textit{Firebase ML Vision} foi utilizado na vers
 
 % arnaldo: 3.3 avaliação: reconhecimento das palavras; conseguiu achar na base com as palavras detectadas na base da anvisa possível observar cada etapa em que a imagem percorre na metodologia desenvolvida.
 
+% EVERTON: Algumas coisas que incluiu, me parecem já resultados e discussões. Veja isso com atenção
+
 \subsection{Processamento de imagem}
-O presente trabalho se faz uso de métodos de processamento de imagem com intuito de buscar um filtro que melhore o poder acertivo do OCR, possibilitando comparar os resultados finais que serão apresentados no tópico a seguir.
+O presente trabalho faz uso de métodos de processamento de imagem com intuito de buscar um filtro que melhore o poder acertivo do OCR, possibilitando comparar os resultados finais que serão apresentados no tópico a seguir.
 
 Os métodos propostos para a etapa de pré processamento são aplicadas às imagens originais. Ainda analisando a Figura \ref{tratamentoimg}, pode-se observar no centro, a imagem original, sem pré processamento de imagem em um ambiente considerado perfeito devido ao ambiente com boa luminosidade exposto. À esquerda da Figura \ref{tratamentoimg} está exposta a representação da imagem exposta ao algoritmo de efeito de Sobel e a direita é representada a imagem com filtro aplicado de escalas em cinza.
 
