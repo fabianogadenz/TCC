@@ -159,7 +159,7 @@ $(\rho)$ é a distância perpendicular da origem (0,0) à reta e $(\theta)$ é o
 
 De acordo com \citeonline{GONZALEZ2002}, as principais vantagens da transformada de Hough é que mesmo segmentos que apresentem regiões obstruídas por outros objetos podem ser detectados, e sua baixa sensibilidade à ruído, já que os pontos de uma imagem corrompidos por esse ruído dificilmente serão mapeados em uma mesma célula de acumulação.
 
- \begin{figure}[h]
+ \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\textwidth]{Imagens/eqreta} 
 	\caption[Representação de uma reta por meio de coordenadas polares.]{Representação de uma reta por meio de coordenadas polares.}
@@ -307,3 +307,20 @@ A figura ~\ref{fig:estruturatexto} destaca exemplos de cada um deles em ordem de
 \fonte{\citeonline{MOBILEVISION}}	
 	\label{fig:estruturatexto}
 \end{figure}
+
+\section{ESTRUTURA DOS DADOS}
+
+O grande volume de dados gerado por aplicações web juntamente com base em requisitos indispensáveis para manipulação de grandes de volumes de dados, tais como a escalabilidade e o elevado grau de disponibilidade, têm contribuído para o surgimento e a implementação cada vez maior de banco de dados não-relacionais. A necessidade de armazenamento e extração de informações oriundas de documentos, por exemplo, requerem o gerenciamento de grandes quantidades de dados não estruturados que são produzidos e processados diariamente por milhões de usuários \cite{LOSCIO}, no conceito de Big Data.
+
+Neste contexto, surgiu uma nova categoria de Banco de Dados, chamada \sigla{NoSQL}{Not Only SQL}, que foi proposta com o objetivo de atender aos requisitos de gerenciamento de grandes volumes de dados, semi-estruturados ou não estruturados, que necessitam de alta disponibilidade e escalabilidade. A necessidade de uma nova tecnologia de banco de dados surgiu como consequência da ineficiência dos bancos de dados relacionais em lidar com esta tarefa \cite{LOSCIO}.
+
+\citeonline{RAMOSNASCIMENTO} descreve as características de um banco de dados NoSQL. São elas: 
+ \begin{enumerate}
+   \item Escalabilidade horizontal, onde ocorre um aumento de máquinas disponíveis para armazenamento de dados e processamento visando melhorar o desempenho;
+   \item Ausência de esquema, ou um esquema mais flexível facilitando a escalabilidade e aumentando a disponibilidade, porém não garante a integridade dos dados. 
+
+ \end{enumerate}
+
+O padrão de navegação de dados dos NoSQL é o  \sigla{JSON}{JavaScript Object Notation}, uma formatação considerada “leve” para troca de dados. Deste modo, a interpretação e geração dos dados possui grande performance. O JSON é baseado em um subconjunto da linguagem de programação JavaScript, a qual está especificada de acordo com o padrão Standard ECMA-262, 3a Edição, publicada em Dezembro de 1999 \cite{JSON}. 
+
+JSON é em formato texto e completamente independente de linguagem, pois usa convenções que são familiares às linguagens C e familiares, incluindo C++, C\#, Java, JavaScript, Perl, Python e muitas outras. Estas propriedades fazem com que JSON seja um formato ideal de troca de dados \cite{JSON}. Além disso, é um formato que pode estar constituído a partir de duas estruturas: uma coleção de pares nome/valor ou uma lista ordenada de valores.
