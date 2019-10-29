@@ -5,18 +5,21 @@ apresentados e discutidos os resultados obtidos a partir dos experimentos aborda
 
 As métricas apresentadas foram calculadas obtendo-se uma média de acertividade do resgate correto dos caracteres do nome do medicamento em questão, analisando a quantidade de caracteres e quantidade de resgates corretos.
 
- No decorrer da criação da base de imagens, foi constatado que o dispositivo celular Samsung J2  não possui boa captura de imagens em ambientes com baixa luminosidade, mas ainda assim optou-se por continuar com a captura de imagens e os testes, pelo fato de poder reproduzir uma situação real, que pode ocorrer com futuros usuários da aplicação em estudo.
+ No decorrer da criação da base de imagens, foi constatado que o dispositivo celular Samsung J2 utilizado para testes, não possui boa captura de imagens em ambientes com baixa luminosidade e ainda assim, optou-se por continuar com a captura de imagens e os testes, pelo fato de poder reproduzir uma situação real, que pode ocorrer com futuros usuários da aplicação em estudo.
  
 Os testes foram realizados e comparados entre as categorias de imagens, perspectivas e entre as técnicas de processamento de imagem. Os testes foram encerrados quando três testes consecutivos da mesma categoria de imagens não obtiveram resgates de pelo menos 3 caracteres corretos e sequentes, o que impossibilitou o próximo passo, que é a recuperaração dos registros na base de dados descritiva dos medicamentos.
 
 %EVERTON: O usuário precisará ter no dispositivo dele a base de todas as imagens?
-Em todos os experimentos que serão apresentados, foi necessário importar as fotos do banco de imagens para o projeto como forma de asset, que é a forma correta onde um aplicativo de celular identifica e caracteriza uma imagem internamente para importação. Como forma de simplificar posteriormente as buscas na base de informações de remédios, foram ignorados os acentos, o que não impactará nos resultados do OCR demonstrados a seguir. Dessa maneira, caso o OCR identifique alguma letra que possua acento, é realizado um pós processamento no texto para que a consulta seja feita sem acentos e caracteres especiais, visando deixar a busca simplificada e com um poder acertivo maior.
+%FABIANO: expliquei a importação das fotos foi necessária apenas para fazer os testes.
+Em todos os experimentos que serão apresentados, foi necessário importar as fotos do banco de imagens de cada categoria como forma de asset, a fim de minimizar tempo entre os testes. Importar como asset é a forma correta onde possibilita a importação de uma imagem em um aplicativo de celular. A base de imagens importada foi excluída após os testes necessários, essa medida foi tomada para otimizar e minimizar o tempo de testes.
+
+Como forma de simplificar posteriormente as buscas na base de informações de remédios, foram ignorados os acentos, o que não impactará nos resultados do OCR demonstrados a seguir. Dessa maneira, caso o OCR identifique alguma letra que possua acento, é realizado um pós processamento no texto para que a consulta seja feita sem acentos e caracteres especiais, visando deixar a busca simplificada e com um poder acertivo maior.
 
 \section{MANIPULAÇÃO DOS DADOS COLETADOS}
 
 Segundo o Portal da \citeonline{PORTALANVISA}, desde o ano 2000 até 05/08/2019, 5.723 medicamentos genéricos foram registrados. Destes, 2.398 registros foram cancelados, restando 3.325 medicamentos genéricos com registros válidos. Em base dessa informação, pensando em trabalhos futuros e pensando em ganho de desempenho no dispositivo celular, foi optado por manipular os dados via \textit{JSON}, viabilizando de forma mais dinâmica o uso de banco de dados não relacionais, chamados de NoSQL, que trabalham diretamente com arquivos JSON.
 
-Os dados coletados para este trabalho foram capturados manualmente do bulário da Anvisa e % -> escritos no salvos <- % no tipo JSON para facilitar a busca detalhada pela lista de objetos criadas do tipo Medicamento, onde possui as seguintes chaves de identificação:
+Os dados coletados para este trabalho foram capturados manualmente do bulário da Anvisa, que disponibiliza documentos digitalizados contendo informações da bula, possibilitando que as informações dos remédio fossem retirados manualmente no formato JSON, para cada medicamento de referência deste trabalho. Foi optado que as informações fossem armazenadas no formato JSON para facilitar a busca detalhada pela lista de objetos criadas do tipo Medicamento, onde possui as seguintes chaves de identificação:
 
 \begin{lstlisting}[firstnumber=1]
 {
@@ -49,11 +52,12 @@ Na primeira etapa, algumas palavras padrões foram identificadas durante o estud
 
 Supondo que uma caixa de medicamento não contenha mais de 50 palavras, na segunda etapa do processo foi analisado que se faz viável a comparação de todas as palavras encontradas com todos os registros de chave de valor "nome" do documento JSON. Mesmo que seja encontrado algum registro, será efetuado a terceira etapa.
 
-Na terceira etapa, é feito um segundo refinamento das informações nas palavras encontradas, se possuir caracteres iguals ao número 0, substituir pela letra "O", número 1 pela letra "L", número 4 pela letra "A" e também o número 7 pela letra "T", devido ao seu alto grau de semelhança visual para o OCR. 
+Na terceira etapa, é feito um segundo refinamento das informações nas palavras encontradas, se possuir caracteres iguais ao número 0, substituir pela letra "O", número 1 pela letra "L", número 4 pela letra "A" e também o número 7 pela letra "T", devido o seu alto grau de semelhança visual para o OCR. 
 
-Após feito a troca dos caracteres, será feita uma nova busca na base de dados JSON, passando palavra por palavra que representa a quarta tarefa da lista. Caso não seja encontrado nenhum registro, o algoritmo % COMO ASSIM?? interpretará o quinto passo, que é a separação da palavra ao meio, formando 2 partes, do início da palavra até a metade e da metade até o final. Fazendo então ser possível a busca novamente na base por medicamentos que contenham essa sequência de letras na chave "nome" do documento JSON.
+Após feito a troca dos caracteres, será feita uma nova busca na base de dados JSON, passando palavra por palavra que representa a quarta tarefa da lista. Caso não seja encontrado nenhum registro, o algoritmo % COMO ASSIM?? 
+interpretará o quinto passo, que é a separação da palavra ao meio, formando 2 partes, do início da palavra até a metade e da metade até o final, possibilitando a busca novamente na base por medicamentos que contenham essa sequência de letras na chave "nome" do documento JSON.
 
-A cada Medicamento encontrado nas etapas, o medicamento é inserido em uma lista que por fim será apresentada para o usuário, retornando apenas os medicamentos distintos encontrados. Caso haja mais de um medicamento encontrado na base, será apresentado uma lista simples, para que o usuário selecione o medicamento correto.
+A cada medicamento encontrado nas etapas, o medicamento é inserido em uma lista que por fim será apresentada para o usuário, retornando apenas os medicamentos distintos encontrados. Caso haja mais de um medicamento encontrado na base, será apresentado uma lista simples, para que o usuário selecione o medicamento correto.
 
 
 \section{Experimento sem manipulação de imagem}
@@ -82,12 +86,10 @@ Foi identificado
 
 \section{EXPERIMENTO APLICANDO efeito DE ESCALAS EM CINZA}
 %EVERTON: Não é primeira pessoa
-Para aplicar o filtro de imagem em escalas de cinza, foi necessário implementar um algoritmo para tal função. Como estamos manipulando um objeto do tipo \textit{File} (arquivo) da galeria, foi necessário decodificar o \textit{File} e transformar para um objeto do tipo textit{Image}. 
+Para aplicar o filtro de imagem em escalas de cinza, foi necessário implementar um algoritmo para tal função. Como a captura de imagem manipula um objeto do tipo \textit{File} (arquivo) da galeria, foi necessário decodificar o \textit{File} e transformar para um objeto do tipo textit{Image}. 
 
 Para otimizar tempo e recurso de memória do celular que acabou sendo insuficiente, foi necessário fazer uma transformada no tamanho da imagem, para altura igual a 600 e largura igual a 600. Com o array de bits gerado da imagem, foi possível iniciar a conversão da imagem para escala de cinza, conforme figura \ref{fig:greyscale}, deixando assim, a imagem em escala de cinza pronta para ser aplicada ao OCR.
 
-
-% Deixo essa imagem? Não consegui transformar para pseudo código
 
 
  \begin{figure}[h]
@@ -98,7 +100,7 @@ Para otimizar tempo e recurso de memória do celular que acabou sendo insuficien
 	\label{fig:greyscale}
 \end{figure}
 
-Os resultados do experimento de pré processamento aplicando efeito de escalas em cinza na imagem, são apressentados na Tabela \ref{tab:exp_sem_filtro}.
+Os resultados do experimento de pré processamento aplicando efeito de escalas em cinza na imagem, são apresentados na Tabela \ref{tab:exp_sem_filtro}.
 
 \begin{table}[]
 \caption{Experimento aplicando filtro de escalas em cinza.}
@@ -141,6 +143,22 @@ Noturnas com flash & 96,7 MB & 600+     & 0 & 0         \\ \hline
 
 Como demonstrado na Tabela \ref{tab:exp_sobel}, houve uma grande complicação para processamento da imagem, tanto para a conversão quanto para o OCR de efetuar a extrassão dos caracteres nas imagens.
 
+\section{Experimento com diferentes perspectivas}
+Uma das propostas iniciais deste trabalho a nível de estudo e de posível melhoria do poder acertivo do OCR, foi a correção de perspectiva da caixa de medicamento. As imagens da base de imagens foram capturadas com pequenas diferenças de perspectivas a fim de simular um ambiente real do cotidiano da população. 
+
+Conforme as tabelas demonstradas acima, o OCR não demonstrou nenhuma variação no resultado de acertividade, sendo desprezível a leve diferença de pespectiva imposta pela base de imagens utilizada para testes.
+
+Em testes com uma perspectiva mais agressiva, como por exemplo demonstrado na Imagem \ref{fig:rotacionadas}, foi possível perceber que mesmo com a caixa de medicamento rotacionada aproximadamente 45 graus em relação ao eixo horizontal da base, o OCR foi capaz de reconhecer os caracteres do nome. Já em testes feitos com rotação superior a 50 graus em relação ao eixo horizontal da base, o OCR não obteve retorno de reconhecimento de caracteres.
+
+
+ \begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\textwidth]{Imagens/perspectiva2.jpg} % <- formatos PNG, JPG e PDF
+	\caption[Imagens rotacionadas.]{Imagens rotacionadas.}
+\fonte{Autoria Própria.}%citaç\~ao do livro onde pegou a figura	
+	\label{fig:rotacionadas}
+\end{figure}
+
 \chapter{CONSIDERAÇÕES FINAIS}\label{ch:intro}
 Neste capítulo são resumidas as principais consideracões finais acerca do trabalho, bem como suas contribuicões sociais. Também é abordado possíveis trabalhos futuros para melhorar e dar continuidade ao objetivo de utilizar tecnicas de processamento de imagem juntamente com OCR no auxílio de uma classe social de idosos que vem crescendo continuamente no Brasil.
 
@@ -151,11 +169,11 @@ Este trabalho mostrou que é possível desenvolver técnicas de reconhecimento d
 
 Com o estudo implementado neste trabalho, é possível levar informação a uma grande parcela da população brasileira que por vezes não dispõe de capacidades visuais para ler letras miúdas de uma bula, pessoas não analfabetizadas, pessoas sem acesso a internet e até mesmo um aplicativo de auto ajuda para o dia a dia de agentes da saúde, que muitas vezes se encontram em locais remotos sem acesso a informações.  
 
-Para o celular, além de complexo a nível de hardware limitado, efetuar técnicas de processamento de imagens se mostrou causar uma demora significativa para a tarefa e sendo menos eficiente do que imagens sem técnicas de processamento.
+Para o celular, além de complexo a nível de hardware limitado, efetuar técnicas de processamento de imagens se mostrou causar uma demora significativa para a tarefa e sendo menos eficiente do que imagens sem técnicas de processamento de imagem.
 
-No conjunto de imagens expostas à técnicas de processamento de imagem, as imagens com pré processamento obtiveram menores taxas de acertividade e um tempo maior de processamento, uma vez que os recursos de processamento do aparelho celular são limitados para tal função. Por estes motivos, foi possível observar que o OCR da Google se saiu melhor em fotos de uso real do dia a dia.
+No conjunto de imagens expostas à técnicas de processamento de imagem, as imagens com pré processamento obtiveram menores taxas de acertividade e um tempo maior de processamento, uma vez que os recursos de processamento do aparelho celular demonstraram limitados para essa função. Por estes motivos, foi possível observar que o OCR da Google se saiu melhor em fotos de uso real do dia a dia e com inclinação de 45 graus em relação a base da lente da camera.
 
-Os testes realizados foram efetuados com caixas de medicamentos aleatórios, diferentes tamanhos, perspectivas, cores e tonalidades de contraste, o que não foi um grande desafio para o tema proposto.
+Os testes realizados foram efetuados com caixas de medicamentos aleatórios, diferentes tamanhos, perspectivas, cores e tonalidades de contraste, o que não foi um grande desafio para o tema proposto. 
 
 Visando trabalhos futuros com consultas de bases de dados mais complexas e externas do celular, foi implementado a regra de estrutura de dados manipulando JSON, onde os dados serão muito melhor trafegados pela rede. Outro lado positivo estudado neste trabalho, foi o OCR do Firebase MLKIT, que apresentou um resultado excelente no resgate de caracteres, chegando quase a perfeição do reconhecimento dos caracteres a nível de nome do medicamento.
 
@@ -165,10 +183,12 @@ Visando trabalhos futuros com consultas de bases de dados mais complexas e exter
 Para possíveis trabalhos futuros baseados neste, se indica:
 
 \begin{enumerate}
-  \item Aplicar outros SDK de OCR para possíveis melhores resultados.
+\item Ampliar a base de dados descritivas de medicamentos.
+
   \item Melhorar o algoritmo de busca em lista para ter uma melhor eficácia na identificação do medicamento, caso o OCR venha errar sequência de 3 letras ou mais da palavra do medicamento em questão.
-  \item Generalizar o tema proposto, sendo possível trabalhar com diferentes categorias de imagens e com diferentes problemas sociais.
-  \item Criar uma base de dados externa para consultas complexas que possa retornar mais informações do medicamento em questão ou até mesmo apresentar informações mais pertinentes, assim como cadastro de medicamentos não regulamentados pela Anvisa na base de dados descritiva dos medicamentos.
+  \item Generalizar o tema proposto, sendo possível trabalhar com diferentes problemas sociais e empresariais.
+  \item Criar uma base de dados externa para consultas complexas que possibilite retornar mais informações do medicamento em questão ou até mesmo para apresentar informações mais pertinentes, assim como cadastro de medicamentos não regulamentados pela Anvisa na base de dados descritiva dos medicamentos.
+  \item Criar uma rota online que possibilite a sincronização da base JSON dos medicamentos reconhecidos pela ANVISA.
 \end{enumerate}
 
 
