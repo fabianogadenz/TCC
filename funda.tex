@@ -60,7 +60,7 @@ destacada da imagem.}
 
 
 Em uma imagem digital existem vários relacionamentos importantes entre os pixels. Conforme descrito em \citeonline{GONZALEZ2002}, 
-um pixel p de coordenadas (x,y) possui uma vizinhança horizontal e vertical determinadas por (x-1, y), (x+1, y) e (x, y-1), (x, y+1) denominada vizinhança-4, e também uma vizinhança diagonal composta pelas coordenadas (x-1, y-1), (x-1, y+1), (x+1, y-1) e (x+1, y+1), convencionado com o nome de vizinhança-8 a união destas vizinhanças.
+um pixel p de coordenadas (x,y) possui uma vizinhança horizontal e vertical determinadas por (x-1, y), (x+1, y) e (x, y-1), (x, y+1) denominada vizinhança-4, e também uma vizinhança diagonal composta pelas coordenadas (x-1, y-1), (x-1, y+1), (x+1, y-1) e (x+1, y+1), formando então a vizinhança-8, denominada com a união destas vizinhanças.
 
 
 Quando o pixel p estiver localizado na borda da imagem, alguns dos pixels vizinhos não estarão presentes na imagem. Isto pode ser mais bem entendido analisando-se a figura~\ref{fig:imagem3} que demonstra visualmente o conceito de vizinhança de um pixel.
@@ -69,11 +69,11 @@ Quando o pixel p estiver localizado na borda da imagem, alguns dos pixels vizinh
 	\centering
 	\includegraphics[width=1.0\textwidth]{Imagens/imagem3} % <- formatos PNG, JPG e PDF
 	\caption[Texto que vai aparecer na lista de fig.]{Tipos de vizinhança. (a) Vizinhança-4; (b) Vizinhança diagonal; (c) Vizinhança-8. }
-\fonte{\citeonline{Goncalves2016}}%citaç\~ao do livro onde pegou a figura	
+\fonte{Adaptado de \citeonline{Goncalves2016}}%citaç\~ao do livro onde pegou a figura	
 	\label{fig:imagem3}
 \end{figure}
 
-A conectividade entre pixels é um conceito importante no processamento de imagens, em especial para o reconhecimento de bordas de objetos presentes em uma imagem. Para identificar se dois pixels são conexos, é preciso averiguar se são vizinhos e se seus níveis de cinza são similares \citeonline{Goncalves2016}. É fundamental analisar a possibilidade de haver conexidade por meio da utilização da vizinhança-4 ou utilizando a vizinhança-8.
+A conectividade entre pixels é um conceito importante no processamento de imagens, em especial para o reconhecimento de bordas de objetos presentes em uma imagem. Para identificar se dois pixels são conexos, é preciso averiguar se são vizinhos e se seus níveis de cinza são similares \citeonline{Goncalves2016}. É fundamental analisar a possibilidade de haver conectividade por meio da utilização da vizinhança-4 ou utilizando a vizinhança-8.
 
 
 
@@ -159,7 +159,7 @@ $(\rho)$ é a distância perpendicular da origem (0,0) à reta e $(\theta)$ é o
 
 De acordo com \citeonline{GONZALEZ2002}, as principais vantagens da transformada de Hough é que mesmo segmentos que apresentem regiões obstruídas por outros objetos podem ser detectados, e sua baixa sensibilidade à ruído, já que os pontos de uma imagem corrompidos por esse ruído dificilmente serão mapeados em uma mesma célula de acumulação.
 
- \begin{figure}[h]
+ \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\textwidth]{Imagens/eqreta} 
 	\caption[Representação de uma reta por meio de coordenadas polares.]{Representação de uma reta por meio de coordenadas polares.}
@@ -181,7 +181,7 @@ A figura~\ref{fig:imagensdistorcidas} mostra dois exemplos de imagens distorcida
 	\label{fig:imagensdistorcidas}
 \end{figure}
 
-\citeonline{ZHANG2007} aborda uma proposta de automatização de correção de imagens fotográficas de quadros brancos. A detecção dos limites formados pelo quadrilátero de uma projeção ou de um quadro branco é o principal obstáculo para a realização de um sistema automatizado de correção de distorções de perspectiva. Os procedimentos descritos por \citeonline{ZHANG2007} são mostrados na figura~\ref{fig:metodologiacorrecao}, onde a transformada de Hough é usada para a detecção dos limites do quadro ou projeção.
+\citeonline{ZHANG2007} abordam uma proposta de automatização de correção de imagens fotográficas de quadros brancos. A detecção dos limites formados pelo quadrilátero de uma projeção ou de um quadro branco é o principal obstáculo para a realização de um sistema automatizado de correção de distorções de perspectiva. Os procedimentos descritos por \citeonline{ZHANG2007} são mostrados na figura~\ref{fig:metodologiacorrecao}, onde a transformada de Hough é usada para a detecção dos limites do quadro ou projeção.
 
  \begin{figure}[h]
 	\centering
@@ -198,15 +198,15 @@ A detecção do contorno de uma imagem está sujeita às condições de luminosi
 \section{RECONHECIMENTO ÓPTICO DE CARACTERES (OCR)}
 Reconhecimento óptico de caracteres é uma tecnologia que utiliza mecanismos de aquisição, tais como câmeras fotográficas, filmadoras e afins para capturar imagens e posteriormente realizar processamentos nestas para reconhecer caracteres alfanuméricos presentes. Essa tecnologia tenta se aproximar do sistema visual humano, porém ainda não é capaz de competir com a capacidade de leitura deste \cite{Mithe2013}.
 
- Existem diversas técnicas de identificação automática, na qual cada uma satisfaz às necessidades de sua área de aplicação. Reconhecimento de voz, tarja magnética, código de barra, impressão digital e OCR são exemplos de aplicações que utilizam tecnologias de identificação automática. Segundo \citeonline{Bhatia2014}, os sistemas de OCR são aqueles capazes de transformar uma grande quantidade de documentos, tanto impresso como manuscrito, em texto de máquina codificado. O reconhecimento de caracteres pode ser realizado no modo off-line, onde ocorre após a escrita ou impressão do documento estiver finalizada, porém o reconhecimento também pode ser on-line onde o computador reconhece os caracteres na maneira que eles vão sendo desenhados \cite{Eikvil1993}. A figura~\ref{fig:areaocr} mostra as possíveis etapas para o reconhecimento de caracteres.
+ Existem diversas técnicas de identificação automática, na qual cada uma satisfaz às necessidades de sua área de aplicação. Reconhecimento de voz, tarja magnética, código de barra, impressão digital e OCR são exemplos de aplicações que utilizam tecnologias de identificação automática. Segundo \citeonline{Bhatia2014}, os sistemas de OCR são aqueles capazes de transformar uma grande quantidade de documentos, tanto impresso como manuscrito, em texto de máquina codificado. O reconhecimento de caracteres pode ser realizado no modo off-line, onde ocorre após a escrita ou impressão do documento estiver finalizada, porém o reconhecimento também pode ser \textit{online} onde o computador reconhece os caracteres na maneira que eles vão sendo desenhados \cite{Eikvil1993}. A figura~\ref{fig:areaocr} mostra as possíveis etapas para o reconhecimento de caracteres.
 
  \begin{figure}[h]
 	\centering
-	\includegraphics[width=1.0\textwidth]{Imagens/areasocr} 
+	\includegraphics[width=1.0\textwidth]{Imagens/areasocr.jpeg} 
 	\caption[Diferentes áreas de reconhecimento de caracteres.]{Diferentes áreas de reconhecimento de caracteres.}
-\fonte{\citeonline{Eikvil1993}}	
+\fonte{Adaptado de \citeonline{Eikvil1993}}	
 	\label{fig:areaocr}
-\end{figure}https://www.overleaf.com/project/5ceea144a90cbe6a3870abe0
+\end{figure}
 
 Para \citeonline{Eikvil1993}, o princípio fundamental para o reconhecimento
 automático de caracteres é ensinar a máquina padrões que podem ocorrer e como eles se assemelham. No caso do OCR, os padrões são letras, números e alguns símbolos especiais como vírgulas, pontos de interrogação, entre outros. O ensino da máquina é feito por meio de amostragem de exemplos de textos com as devidas correspondências.
@@ -231,7 +231,7 @@ Para \citeonline{Eikvil1993}, um sistema de OCR é composto pelos seguintes comp
 
 Segundo \citeonline{Goswami2013}, a primeira etapa é a aquisição de dados, que pode ser feita por meio de um escaneamento óptico, capaz de realizar a transformação de um documento físico em uma imagem digitalizada ou por uma câmera. Em seguida, a etapa de pré-processamento com a finalidade de melhorar o documento para aplicação da segmentação. Na etapa de segmentação os caracteres são separados e extraídos para serem identificados. E por fim, os caracteres são reconstruídos em palavras pela etapa de pós-processamento.
 
-Na etapa de aquisição de dados, pode ser obtida uma imagem digital por meio de captura fotográfica. Na criação de um sistema de reconhecimento de caracteres on-line, é utilizado digitalizadores que capturam diretamente a escrita pela ordem dos traços e pela velocidade \cite{Goswami2013}.
+Na etapa de aquisição de dados, pode ser obtida uma imagem digital por meio de captura fotográfica. Na criação de um sistema de reconhecimento de caracteres \textit{online}, é utilizado digitalizadores que capturam diretamente a escrita pela ordem dos traços e pela velocidade \cite{Goswami2013}.
 
 Após a etapa de aquisição de imagem onde a imagem já está digitalizada, pode existir uma certa quantidade de imperfeições e ruídos \cite{Eikvil1993}. Desse modo, o pré-processamento tem como objetivo utilizar uma série de técnicas com o intuito de aperfeiçoar a imagem para as etapas decorrentes \cite{Goswami2013}. Dentre as diversas técnicas que podem ser aplicadas, as de maior importância são: normalização e redução de ruído. Normalização é considerada a etapa de mais relevância do pré-processamento, pois consegue obter caracteres de tamanho, rotação uniforme e inclinação \cite{Eikvil1993}. O objetivo da redução de ruído é solucionar problemas como segmentos de linhas desconectados, lacunas nas linhas, distorção e outras imperfeições por meio de métodos de filtragem, operações morfológicas, suavização e modelagem de ruído \cite{Goswami2013}. 
 Na figura~\ref{fig:norm_suav_caracter} está representada a aplicação das técnicas de normalização e redução de ruído.
@@ -283,9 +283,15 @@ Atualmente, existem modernas e sofisticadas aplicações que conseguem desempenh
 
 Será apresentado na sequência, detalhes do  SDK Firebase \sigla{ML}{Machine Learn} Kit que é o SDK voltado para dispositivos móveis da API Google Cloud Vision, que leva a experiência em aprendizado de máquina do Google para aplicativos Android e iOS em forma de um pacote de desenvolvimento \cite{CODELABS}. A API do Mobile Vision fornece uma estrutura para encontrar objetos em fotos e vídeos. A estrutura inclui detectores, que localizam e descrevem objetos visuais em imagens ou quadros de vídeo, e uma API orientada a eventos que rastreia a posição desses objetos em vídeo. Atualmente, a API do Mobile Vision inclui detectores de face , código de barras e texto, que podem ser aplicados separadamente ou em conjunto \cite{INTROMOBILEVISION}.
 
+
+
+
 % O pacote de visão inclui uma estrutura de funcionalidade de base comum e sub pacotes para implementações de detectores específicos como detector de face, detector de código de barras e também detector de texto \cite{INTROMOBILEVISION}.
 
-O \textit{Kit} de \textit{Machine Learn} da Google facilita a aplicação de técnicas de \textit{Machine Learn} nos aplicativos desenvolvidos, como a \texttit{API} do Google \texttit{Cloud Vision}, o Mobile Vision e o TensorFlow Lite, juntos em um único SDK \cite{CODELABS}.
+O \textit{Kit} de \textit{Machine Learn} \cite{pubdev}
+da Google facilita a aplicação de técnicas de \textit{Machine Learn} nos aplicativos desenvolvidos, como a \textit{API} do Google \textit{Cloud Vision}, o Mobile Vision e o TensorFlow Lite, juntos em um único SDK \cite{CODELABS}.
+
+
 
 No processo de detecção e reconhecimento de texto em imagens, uma vez detectado, o reconhecedor determina o texto real em cada bloco e o segmenta em linhas e palavras. A API de texto detecta texto em idiomas latinos (francês, alemão, inglês, etc.) em tempo real no dispositivo.
 
@@ -307,3 +313,20 @@ A figura ~\ref{fig:estruturatexto} destaca exemplos de cada um deles em ordem de
 \fonte{\citeonline{MOBILEVISION}}	
 	\label{fig:estruturatexto}
 \end{figure}
+
+\section{ESTRUTURA DOS DADOS}
+
+O grande volume de dados gerados por aplicações web, em conjunto com a necessidade da manipulação desses dados, tais como a escalabilidade e o elevado grau de disponibilidade, têm contribuído para o surgimento e a implementação cada vez maior de modelos de banco de dados não-relacionais. A necessidade de armazenamento e extração de informações oriundas de documentos, por exemplo, requerem o gerenciamento de grandes quantidades de dados não estruturados que são produzidos e processados diariamente por milhões de usuários \cite{LOSCIO}.
+
+Neste contexto, surgiu uma nova categoria de Banco de Dados, chamada \sigla{NoSQL}{Not Only SQL}, que foi proposta com o objetivo de atender aos requisitos de gerenciamento de grandes volumes de dados, semi-estruturados ou não estruturados, que necessitem de alta disponibilidade e escalabilidade. Esse fato se deu como consequência da ineficiência dos bancos de dados relacionais em lidar com esta tarefa \cite{LOSCIO}.
+
+\citeonline{RAMOSNASCIMENTO} descrevem as características de um banco de dados NoSQL. São elas: 
+ \begin{enumerate}
+   \item Escalabilidade horizontal, onde ocorre um aumento de máquinas disponíveis para armazenamento de dados e processamento visando melhorar o desempenho;
+   \item Ausência de esquema, ou um esquema mais flexível facilitando a escalabilidade e aumentando a disponibilidade, porém não garante a integridade dos dados. 
+
+ \end{enumerate}
+
+O padrão de recuperação de dados NoSQL em uma base NoSQL é o  \sigla{JSON}{JavaScript Object Notation}, uma formatação considerada “leve” para troca de dados. Deste modo, a interpretação e geração dos dados possui grande performance. O JSON é baseado em um subconjunto da linguagem de programação JavaScript, a qual está especificada de acordo com o padrão Standard ECMA-262, 3a Edição, publicada em Dezembro de 1999 \cite{JSON}. 
+
+JSON é em formato texto e completamente independente de linguagem, pois usa convenções que são familiares às linguagens C e familiares, incluindo C++, C\#, Java, JavaScript, Perl, Python e muitas outras. Estas propriedades fazem com que JSON seja um formato ideal de troca de dados \cite{JSON}. Além disso, é um formato que pode estar constituído a partir de duas estruturas: uma coleção de pares nome/valor ou uma lista ordenada de valores.
